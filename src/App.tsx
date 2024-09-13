@@ -10,6 +10,7 @@ function App() {
     new Array(MIN_ROW_SIZE).fill(null).map(() => new Duration(0, 0, 0, 0))
   );
 
+  const [durationResult, setDurationResult] = useState<Duration>(new Duration(0,0,0,0));
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
     type DurationField = 'hours' | 'minutes' | 'seconds' | 'milliseconds';
@@ -33,6 +34,10 @@ function App() {
     setDurations(newDurations);
     console.log('Handlechange working.');
   };
+
+  const compute = (): void => {
+    setDurationResult(durations[0].minus(durations[1]));
+  }
 
   const durationRows = durations.map((duration: Duration) => {
     return (
@@ -59,6 +64,8 @@ function App() {
           {durationRows}
         </tbody>
       </table>
+      <button onClick={compute}>Compute</button>
+      <p>Result: {durationResult.toReadable()}</p>
     </main>
   );
 }

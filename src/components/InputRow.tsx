@@ -1,11 +1,17 @@
 import React, { ChangeEventHandler } from "react";
 import Duration from "../durationTools";
 
+/** */
 interface DurationInputRow {
     duration: Duration,
     onChange: ChangeEventHandler<HTMLInputElement>
 }
 
+/**
+ * 
+ * @param param0 
+ * @returns 
+ */
 const InputRow: React.FC<DurationInputRow> = ({ duration, onChange }) => {
 
     console.log("Current duration id: ", duration.id);

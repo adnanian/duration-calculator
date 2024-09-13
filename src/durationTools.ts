@@ -1,7 +1,4 @@
-interface ArithmeticOperation {
-    symbol: '+' | '-' | '×' | '÷';
-    function: Function;
-}
+type ArithmeticSymbol = '+' | '-' | '×' | '÷';
 
 class Duration {
     hours: number;
@@ -22,10 +19,7 @@ class Duration {
 
     static idIncrement: number = 0;
 
-    private readonly operationMap = Object.freeze({
-        '+': this.plus.bind(this),
-        '-': this.minus.bind(this)
-    });
+    
 
     constructor(hours: number, minutes: number, seconds: number, milliseconds: number) {
         if (!Number.isInteger(hours) || hours < 0) {
@@ -89,11 +83,33 @@ class Duration {
         return new Duration(hoursPlace, minutesPlace, secondsPlace, millisPlace);
     }
 
+    // Mapping arithmetic symbols to their respective methods
+    // Source: https://www.typescriptlang.org/docs/handbook/utility-types.html#recordkeys-type
+    private readonly operationMap: Record<ArithmeticSymbol, (d: Duration) => Duration> = {
+        '+': this.plus.bind(this),
+        '-': this.minus.bind(this),
+        '×': (d: Duration) => { throw new Error("Multiplication not implemented yet."); },
+        '÷': (d: Duration) => { throw new Error("Division not implemented yet."); }
+    };
+
+    // Perform the calculation based on the symbol
+    performCalculation(argument: Duration, opSymbol: ArithmeticSymbol): Duration {
+        const operation = this.operationMap[opSymbol];
+        if (!operation) {
+            throw new Error(`Operation '${opSymbol}' not supported.`);
+        }
+        return operation(argument);
+    }
+
     // Cloning method for deep copy
     clone() {
         const cloned = new Duration(this.hours, this.minutes, this.seconds, this.milliseconds);
         cloned.id = this.id; // Retain the same ID
         return cloned;
+    }
+
+    toReadable() {
+        return `${this.hours} hours, ${this.minutes} minutes, ${this.seconds} seconds, ${this.milliseconds} millisecoinds`;
     }
 }
 
