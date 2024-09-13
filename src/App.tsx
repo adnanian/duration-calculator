@@ -1,5 +1,6 @@
 import React, { ChangeEvent, useState } from 'react';
-import Duration from './Duration';
+import Duration from './durationTools';
+import InputRow from './components/InputRow';
 
 function App() {
   const MIN_ROW_SIZE: number = 2;
@@ -8,9 +9,6 @@ function App() {
   const [durations, setDurations] = useState<Duration[]>(
     new Array(MIN_ROW_SIZE).fill(null).map(() => new Duration(0, 0, 0, 0))
   );
-
-  console.log(durations);
-  console.log(Duration.idIncrement);
 
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
@@ -22,7 +20,7 @@ function App() {
         const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'));
         
         // Create a new Duration object with updated field
-        const newDuration = { ...duration };
+        const newDuration = duration.clone();
         
         // Use type assertion to ensure fieldName is a valid key of Duration
         newDuration[fieldName as DurationField] = Number(e.target.value);  // Assuming value needs to be a number
@@ -32,49 +30,13 @@ function App() {
         return duration;
       }
     });
-
     setDurations(newDurations);
+    console.log('Handlechange working.');
   };
 
   const durationRows = durations.map((duration: Duration) => {
     return (
-      <div key={duration.id}>
-        <input
-          id={`hours-${duration.id}`}
-          type="number"
-          min="0"
-          step="1"
-          value={duration.hours}
-          onChange={handleChange}
-        />
-        <input
-          id={`minutes-${duration.id}`}
-          type="number"
-          min="0"
-          max="59"
-          step="1"
-          value={duration.minutes}
-          onChange={handleChange}
-        />
-        <input
-          id={`seconds-${duration.id}`}
-          type="number"
-          min="0"
-          max="59"
-          step="1"
-          value={duration.seconds}
-          onChange={handleChange}
-        />
-        <input
-          id={`milliseconds-${duration.id}`}
-          type="number"
-          min="0"
-          max="999"
-          step="1"
-          value={duration.milliseconds}
-          onChange={handleChange}
-        />
-      </div>
+      <InputRow key={duration.id} duration={duration} onChange={handleChange}/>
     );
   })
 
@@ -82,9 +44,21 @@ function App() {
     <main>
       <h1>Duration Calculator</h1>
       <h2>A simple tool to calculate your durations irrespective of time.</h2>
-      <ul>
-        {durationRows}
-      </ul>
+      <table>
+        <thead>
+          <tr>
+            <th>Hours</th>
+            <th>Minutes</th>
+            <th>Seconds</th>
+            <th>Milliseconds</th>
+            <th>Operation</th>
+            <th>Scale</th>
+          </tr>
+        </thead>
+        <tbody>
+          {durationRows}
+        </tbody>
+      </table>
     </main>
   );
 }
