@@ -1,6 +1,8 @@
 import React, { ChangeEvent, useState } from 'react';
+// import { BrowserRouter, Route, Routes as RouteList } from 'react-router-dom';
 import Duration from './durationTools';
 import InputRow from './components/InputRow';
+import ArabicMode from './lang-pages/ArabicMode';
 
 function App() {
   const MIN_ROW_SIZE: number = 2;
@@ -66,8 +68,10 @@ function App() {
       </table>
       <button onClick={compute}>Compute</button>
       <p>Result: {durationResult.toReadable()}</p>
+      <ArabicMode/>
     </main>
   );
+
 }
 
 export default App;

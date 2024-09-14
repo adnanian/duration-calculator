@@ -14,7 +14,7 @@ interface DurationInputRow {
  */
 const InputRow: React.FC<DurationInputRow> = ({ duration, onChange }) => {
 
-    console.log("Current duration id: ", duration.id);
+    // console.log("Current duration id: ", duration.id);
 
     return (
         <tr>
@@ -67,6 +67,8 @@ const InputRow: React.FC<DurationInputRow> = ({ duration, onChange }) => {
                         <select>
                             <option value='+'>+</option>
                             <option value='-'>-</option>
+                            <option value='×'>×</option>
+                            <option value='÷'>÷</option>
                         </select>
                     )
                 }
