@@ -1,5 +1,6 @@
 import React from "react";
 
+// Lookup later. https://dev.to/franklin030601/building-a-multi-language-app-with-react-js-2och
 const ArabicMode = () => {
     // return <h1 dir="rtl" lang="ar">مرحبا للجميع! أنا اسمي عدنان، وأنا أحب البرمجة. أتمنى لكم يوما سعيدا.</h1>
     return (
