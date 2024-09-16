@@ -1,0 +1,13 @@
+{
+    "title": "حاسبة المدة",
+    "subtitle": "أداة بسيطة لحساب مددكم بغض النظر عن الوقت.",
+    "label": "اختيار لغة!",
+    "hours": "ساعات",
+    "minutes": "دقائق",
+    "seconds": "ثانيات",
+    "milliseconds": "ميلي ثانية",
+    "operation": "عملية",
+    "scale": "المضروب به / المقسوم عليه",
+    "compute": "إجراء حساب",
+    "result": "نتيجة: {{hours}} س, {{minutes}} د, {{seconds}} ث, {{milliseconds}} م"
+}

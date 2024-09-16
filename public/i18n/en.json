@@ -1,0 +1,13 @@
+{
+    "title": "Duration Calculator",
+    "subtitle": "A simple tool to calculate your durations irrespective of time.",
+    "label": "Select a language!",
+    "hours": "Hours",
+    "minutes": "minutes",
+    "seconds": "seconds",
+    "milliseconds": "milliseconds",
+    "operation": "operation",
+    "scale": "scale",
+    "compute": "Compute!",
+    "result": "Result: {{hours}} hrs, {{minutes}} min, {{seconds}} sec, {{milliseconds}} millis"
+}
