@@ -7,7 +7,7 @@ import { Language, LanguageMap } from './lang';
 
 function App() {
   const MIN_ROW_SIZE: number = 2;
-  const MAX_ROW_SIZE: number = 100;
+  // const MAX_ROW_SIZE: number = 100;
 
   const { i18n, t } = useTranslation();
 
