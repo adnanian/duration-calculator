@@ -1,64 +1,34 @@
 import React, { ChangeEvent, useState } from 'react';
 import { useTranslation } from "react-i18next";
-// import { BrowserRouter, Route, Routes as RouteList } from 'react-router-dom';
-import Duration from './durationTools';
+import * as dt from './durationTools';
 import InputRow from './components/InputRow';
 import { Language, LanguageMap } from './lang';
 
-function App() {
-  const MIN_ROW_SIZE: number = 2;
-  // const MAX_ROW_SIZE: number = 100;
-
+const App = () => {
+  const MIN_ROW_SIZE: number = 2, MAX_ROW_SIZE: number = 100;
   const { i18n, t } = useTranslation();
-
-  const [durations, setDurations] = useState<Duration[]>(
-    new Array(MIN_ROW_SIZE).fill(null).map(() => new Duration(0, 0, 0, 0))
+  // Array of durations, scales, and the operands.
+  // Must first initialize to null so that id can increment.
+  const [calculableArgs, setCalculableArgs] = useState<dt.CalcWrapper[]>(
+    Array(MIN_ROW_SIZE).fill(null).map(() => new dt.CalcWrapper('+', new dt.Duration(0, 0, 0, 0)))
   );
-
-  const [durationResult, setDurationResult] = useState<Duration>(new Duration(0, 0, 0, 0));
-
-  const [language, setLanguage] = useState<Language>(LanguageMap.ENGLISH);
-
-
-  const handleChange = (e: ChangeEvent<HTMLInputElement>): void => {
-    type DurationField = 'hours' | 'minutes' | 'seconds' | 'milliseconds';
-
-    const newDurations = durations.map((duration: Duration) => {
-      if (e.target.id.includes(duration.id.toString())) {
-        // Extract the field name from the ID
-        const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'));
-
-        // Create a new Duration object with updated field
-        const newDuration = duration.clone();
-
-        // Use type assertion to ensure fieldName is a valid key of Duration
-        newDuration[fieldName as DurationField] = Number(e.target.value);  // Assuming value needs to be a number
-
-        return newDuration;
-      } else {
-        return duration;
-      }
-    });
-    setDurations(newDurations);
-    console.log('Handlechange working.');
-  };
-
-  const compute = (): void => {
-    setDurationResult(durations[0].minus(durations[1]));
-  }
-
-  const handleSelection = (e: ChangeEvent<HTMLSelectElement>): void => {
-    const langCode = e.target.value;
-    i18n.changeLanguage(langCode);
-    setLanguage(LanguageMap[langCode]);
-  };
-
-  const durationRows = durations.map((duration: Duration) => {
+  // Computed duration.
+  const [durationResult, setDurationResult] = useState<dt.Duration>(new dt.Duration(0, 0, 0, 0));
+  // calculable container components
+  const calcContainers = calculableArgs.map((calcWrapper) => {
     return (
-      <InputRow key={duration.id} duration={duration} onChange={handleChange} />
-    );
+      <InputRow
+        key={calcWrapper.id}
+        calcWrapper={calcWrapper}
+        onInputChange={handleCalculableChange}
+      />
+    )
   });
 
+
+  // Initial language
+  const [language, setLanguage] = useState<Language>(LanguageMap.ENGLISH);
+  // List of all available languages for this application. See /src/public/i18n
   const languageOptions = Object.values(LanguageMap).map((language) => {
     return (
       <option key={language.code} value={language.code}>
@@ -67,11 +37,64 @@ function App() {
     );
   });
 
-  console.log(language?.dir);
+  // Event Listeners
+
+  function handleCalculableChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void {
+    type DurationField = 'hours' | 'minutes' | 'seconds' | 'milliseconds';
+    type ScaleField = 'value';
+    const newWrappers = calculableArgs.map((cw) => {
+      if (e.target.id.includes(cw.id.toString())) {
+        
+        const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'));
+        let newCW: dt.CalcWrapper = cw.clone();
+        if (fieldName === 'operand') {
+          const oldOperand = newCW.operand;
+          newCW.operand = e.target.value as dt.Operand;
+          if ((newCW.operand === '+' || newCW.operand === '-') && (oldOperand === '×' || oldOperand === '÷')) {
+            newCW.durationCalculable = new dt.Duration(0, 0, 0, 0) as dt.Duration;
+          } else if ((newCW.operand === '×' || newCW.operand === '÷') && (oldOperand === '+' || oldOperand === '-')) {
+            newCW.durationCalculable = new dt.Scale(0) as dt.Scale;
+          }
+        } else {
+          // console.log(newCW.durationCalculable instanceof dt.Duration);
+          if (newCW.durationCalculable instanceof dt.Duration) {
+            newCW.durationCalculable[fieldName as DurationField] = Number.parseInt(e.target.value);
+          } else {
+            console.log(newCW.durationCalculable instanceof dt.Scale);
+            console.log(e.target.value);
+            const scale = newCW.durationCalculable as dt.Scale;
+            scale.value = Number.parseFloat(e.target.value);
+            newCW.durationCalculable = scale;
+          }
+          console.log(newCW.durationCalculable);
+        }
+        return newCW;
+      } else {
+        return cw;
+      }
+    });
+    setCalculableArgs(newWrappers);
+  }
+
+  function compute(): void {
+
+  }
+
+  /**
+   * Sets the new language of the application and refreshes the page in that
+   * language.
+   * 
+   * @param e the event.
+   */
+  function handleLanguageSelection(e: ChangeEvent<HTMLSelectElement>): void {
+    const langCode = e.target.value;
+    i18n.changeLanguage(langCode);
+    setLanguage(LanguageMap[langCode]);
+  };
 
   return (
     <main dir={language?.dir || "ltr"}>
-      <select defaultValue={"en"} onChange={handleSelection}>
+      <select defaultValue={"en"} onChange={handleLanguageSelection}>
         {languageOptions}
       </select>
       <h1>{t("title")}</h1>
@@ -88,7 +111,7 @@ function App() {
           </tr>
         </thead>
         <tbody>
-          {durationRows}
+          {calcContainers}
         </tbody>
       </table>
       <button onClick={compute}>{t("compute")}</button>
@@ -99,8 +122,7 @@ function App() {
         milliseconds: durationResult.milliseconds
       })}</p>
     </main>
-  );
-
+  )
 }
 
 export default App;
