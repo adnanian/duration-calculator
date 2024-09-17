@@ -11,6 +11,7 @@
     "compute": "Compute!",
     "result": "Result: {{hours}} hrs, {{minutes}} min, {{seconds}} sec, {{milliseconds}} millis",
     "rows": "Rows: {{rowCount}}",
+    "rowNumLabel": "Row #",
     "addRows": "Add Rows",
     "rowTooltip": "Note: the maximum number of rows for this table is {{maxRowCount}}."
 }

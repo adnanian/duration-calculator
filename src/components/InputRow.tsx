@@ -3,6 +3,7 @@ import * as dt from "../durationTools";
 
 /** */
 interface CalculableInputRow {
+    index: number
     calcWrapper: dt.CalcWrapper,
     onInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
 }
@@ -12,7 +13,7 @@ interface CalculableInputRow {
  * @param param0 
  * @returns 
  */
-const InputRow: React.FC<CalculableInputRow> = ({ calcWrapper, onInputChange }) => {
+const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputChange }) => {
     // const isDuration: boolean = calcWrapper.durationCalculable instanceof dt.Duration;
     // Duration Defaults
     let hours: number = 0, minutes: number = 0, seconds: number = 0, milliseconds: number = 0;
@@ -39,9 +40,10 @@ const InputRow: React.FC<CalculableInputRow> = ({ calcWrapper, onInputChange }) 
 
     return (
         <tr>
+            <td>{index + 1}</td>
             <td>
                 <input
-                    id={`hours-${calcWrapper.id}`}
+                    id={`hours-${index}`}
                     type="number"
                     min="0"
                     max="876000"
@@ -53,7 +55,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ calcWrapper, onInputChange }) 
             </td>
             <td>
                 <input
-                    id={`minutes-${calcWrapper.id}`}
+                    id={`minutes-${index}`}
                     type="number"
                     min="0"
                     max="59"
@@ -65,7 +67,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ calcWrapper, onInputChange }) 
             </td>
             <td>
                 <input
-                    id={`seconds-${calcWrapper.id}`}
+                    id={`seconds-${index}`}
                     type="number"
                     min="0"
                     max="59"
@@ -77,7 +79,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ calcWrapper, onInputChange }) 
             </td>
             <td>
                 <input
-                    id={`milliseconds-${calcWrapper.id}`}
+                    id={`milliseconds-${index}`}
                     type="number"
                     min="0"
                     max="999"
@@ -89,8 +91,8 @@ const InputRow: React.FC<CalculableInputRow> = ({ calcWrapper, onInputChange }) 
             </td>
             <td>
                 {
-                    calcWrapper.id === 0 ? null : (
-                        <select id={`operand-${calcWrapper.id}`} onChange={onInputChange}>
+                    index === 0 ? null : (
+                        <select id={`operand-${index}`} onChange={onInputChange}>
                             <option value='+'>+</option>
                             <option value='-'>-</option>
                             <option value='×'>×</option>
@@ -101,7 +103,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ calcWrapper, onInputChange }) 
             </td>
             <td>
                 <input
-                    id={`value-${calcWrapper.id}`}
+                    id={`value-${index}`}
                     type="number"
                     min="0"
                     step="0.001"

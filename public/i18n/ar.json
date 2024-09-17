@@ -11,6 +11,7 @@
     "compute": "إجراء حساب",
     "result": "نتيجة: {{hours}} س, {{minutes}} د, {{seconds}} ث, {{milliseconds}} م",
     "rows": "صفوف: {{rowCount}}",
+    "rowNumLabel": "صف #",
     "addRows": "إضافة صفوف",
     "rowTooltip": "ملاحظة: الحد الأقصى لعدد الصفوف لهذا الجدول هو {{maxRowCount}}."
 }

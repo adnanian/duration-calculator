@@ -9,22 +9,25 @@ const App = () => {
   const { i18n, t } = useTranslation();
   // Array of durations, scales, and the operands.
   // Must first initialize to null so that id can increment.
-  const [calculableArgs, setCalculableArgs] = useState<dt.CalcWrapper[]>(
-    Array(MIN_ROW_SIZE).fill(null).map(() => new dt.CalcWrapper('+', new dt.Duration(0, 0, 0, 0)))
-  );
+  const [calculableArgs, setCalculableArgs] = useState<dt.CalcWrapper[]>((): dt.CalcWrapper[] => {
+    const cwArray: dt.CalcWrapper[] = Array(MIN_ROW_SIZE).fill(null);
+    cwArray[0] = new dt.CalcWrapper("N/A", new dt.Duration(0,0,0,0));
+    cwArray[1] = new dt.CalcWrapper('+', new dt.Duration(0,0,0,0));
+    return cwArray;
+  });
   // Computed duration.
   const [durationResult, setDurationResult] = useState<dt.Duration>(new dt.Duration(0, 0, 0, 0));
   // calculable container components
-  const calcContainers = calculableArgs.map((calcWrapper) => {
+  const calcContainers = calculableArgs.map((calcWrapper, index) => {
     return (
       <InputRow
-        key={calcWrapper.id}
+        key={index}
+        index={index}
         calcWrapper={calcWrapper}
         onInputChange={handleCalculableChange}
       />
     )
   });
-
 
   // Initial language
   const [language, setLanguage] = useState<Language>(LanguageMap.ENGLISH);
@@ -45,9 +48,9 @@ const App = () => {
    */
   function handleCalculableChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void {
     type DurationField = 'hours' | 'minutes' | 'seconds' | 'milliseconds';
-    const newWrappers = calculableArgs.map((cw) => {
-      if (e.target.id.includes(cw.id.toString())) {
-        const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'));
+    const newWrappers = calculableArgs.map((cw, index) => {
+      if (e.target.id.includes(index.toString())) {
+        const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'))
         let newCW: dt.CalcWrapper = cw.clone();
         if (fieldName === 'operand') {
           const oldOperand = newCW.operand;
@@ -58,22 +61,13 @@ const App = () => {
             newCW.durationCalculable = new dt.Scale(0) as dt.Scale;
           }
         } else {
-          // console.log(newCW.durationCalculable instanceof dt.Duration);
           if (newCW.durationCalculable instanceof dt.Duration) {
-            try {
-              newCW.durationCalculable[fieldName as DurationField] = Number.parseInt(e.target.value);
-            } catch (error) {
-              console.error("Call here")
-              newCW.durationCalculable[fieldName as DurationField] = 0;
-            }
+            newCW.durationCalculable[fieldName as DurationField] = Number.parseInt(e.target.value as string);
+
           } else {
-            try {
-              const scale = newCW.durationCalculable as dt.Scale;
-              scale.value = Number.parseFloat(e.target.value);
-              newCW.durationCalculable = scale;
-            } catch (error) {
-              // DO NOTHING
-            }
+            const scale = newCW.durationCalculable as dt.Scale;
+            scale.value = Number.parseFloat(e.target.value as string);
+            newCW.durationCalculable = scale;
           }
         }
         return newCW;
@@ -85,19 +79,26 @@ const App = () => {
   }
 
   function compute(): void {
-    let totalDuration: dt.Duration = new dt.Duration(0,0,0,0);
+    let totalDuration: dt.Duration = new dt.Duration(0, 0, 0, 0);
     calculableArgs.forEach((row, index) => {
+      console.log(row.operand);
       if (index === 0) {
         totalDuration = row.durationCalculable as dt.Duration;
       } else {
-        const correctType: any = dt.isDuration(row.durationCalculable) ? dt.Duration : dt.Scale;
-        totalDuration = totalDuration.performCalculation(
-          row.durationCalculable as typeof correctType,
-          row.operand
-        );
+        // const correctType: any = dt.isDuration(row.durationCalculable) ? dt.Duration : dt.Scale;
+        // totalDuration = totalDuration.performCalculation(
+        //   row.durationCalculable as typeof correctType,
+        //   row.operand
+        // );
+        if (dt.isDuration(row.durationCalculable)) {
+          totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Duration, row.operand);
+        } else if (dt.isScale(row.durationCalculable)) {
+          totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Scale, row.operand);
+        }
       }
     });
     setDurationResult(totalDuration);
+
   }
 
   /**
@@ -125,13 +126,14 @@ const App = () => {
       });
       setCalculableArgs([...calculableArgs, ...newRows]);
     } else if (newRowCount < calculableArgs.length) {
-      setCalculableArgs((rows: dt.CalcWrapper[]): dt.CalcWrapper[] => {
-        const newRows = rows.slice(0, newRowCount).map((row, index) => {
-          row.id = index;
-          return row;
-        });
-        return newRows;
-      });
+      // setCalculableArgs((rows: dt.CalcWrapper[]): dt.CalcWrapper[] => {
+      //   const newRows = rows.slice(0, newRowCount).map((row, index) => {
+      //     row.id = index;
+      //     return row;
+      //   });
+      //   return newRows;
+      // });
+      setCalculableArgs(calculableArgs.slice(0, newRowCount));
     }
   }
 
@@ -139,6 +141,9 @@ const App = () => {
   // calculableArgs.forEach((row) => {
   //   console.log(row.id);
   // });
+
+  // console.log(calculableArgs);
+  console.log(calcContainers);
 
   return (
     <main dir={language?.dir || "ltr"}>
@@ -171,6 +176,7 @@ const App = () => {
         <table>
           <thead>
             <tr>
+              <th>{t("rowNumLabel")}</th>
               <th>{t("hours")}</th>
               <th>{t("minutes")}</th>
               <th>{t("seconds")}</th>

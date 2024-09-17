@@ -13,11 +13,11 @@ export class Scale extends Calculable {
     public value: number;
 
     constructor(value: number) {
-        if (value < 0) {
-            throw new Error("Scale value must be non-negative.");
-        }
+        // if (value < 0) {
+        //     throw new Error("Scale value must be non-negative.");
+        // }
         super();
-        this.value = value;
+        this.value = isNaN(value) ? 0 : value;
 
     }
 
@@ -46,23 +46,23 @@ export class Duration extends Calculable {
     private static readonly MINUTES_PER_HOUR: number = 60;
 
     constructor(hours: number, minutes: number, seconds: number, milliseconds: number) {
-        if (!Number.isInteger(hours) || hours < 0) {
-            throw new Error("Hours must be a non-negative integer.");
-        }
-        if (!Number.isInteger(minutes) || minutes < 0 || minutes > Duration.MAX_MINUTE_VALUE) {
-            throw new Error("Minutes must be an integer between 0 and 59.");
-        }
-        if (!Number.isInteger(seconds) || seconds < 0 || seconds > Duration.MAX_SECOND_VALUE) {
-            throw new Error("Seconds must be an integer between 0 and 59.");
-        }
-        if (milliseconds < 0 || milliseconds >= Duration.MILLI_VALUE_LIMIT) {
-            throw new Error("Milliseconds must be between 0 (inclusive) and 1000 (exclusive)");
-        }
+        // if (!Number.isInteger(hours) || hours < 0) {
+        //     throw new Error("Hours must be a non-negative integer.");
+        // }
+        // if (!Number.isInteger(minutes) || minutes < 0 || minutes > Duration.MAX_MINUTE_VALUE) {
+        //     throw new Error("Minutes must be an integer between 0 and 59.");
+        // }
+        // if (!Number.isInteger(seconds) || seconds < 0 || seconds > Duration.MAX_SECOND_VALUE) {
+        //     throw new Error("Seconds must be an integer between 0 and 59.");
+        // }
+        // if (milliseconds < 0 || milliseconds >= Duration.MILLI_VALUE_LIMIT) {
+        //     throw new Error("Milliseconds must be between 0 (inclusive) and 1000 (exclusive)");
+        // }
         super();
-        this.hours = hours;
-        this.minutes = minutes;
-        this.seconds = seconds;
-        this.milliseconds = milliseconds;
+        this.hours = isNaN(hours) ? 0 : hours;
+        this.minutes = isNaN(minutes) ? 0 : minutes;
+        this.seconds = isNaN(seconds) ? 0 : seconds;
+        this.milliseconds = isNaN(milliseconds) ? 0 : milliseconds;
     }
 
     /**
@@ -206,25 +206,22 @@ export class Duration extends Calculable {
 }
 
 export class CalcWrapper {
-    id: number
     operand: Operand;
     durationCalculable: Calculable;
 
     static idIncrement: number = 0;
 
-    constructor(operaton: Operand, durationCalculable: Calculable) {
-        this.operand = CalcWrapper.idIncrement === 0 ? "N/A" : operaton;
+    constructor(operand: Operand, durationCalculable: Calculable) {
+        this.operand = operand;
         if (durationCalculable instanceof Scale && CalcWrapper.idIncrement === 0) {
             throw new Error("The first calculable container must contain a Duration and NOT a scale.");
         }
         this.durationCalculable = durationCalculable;
-        this.id = CalcWrapper.idIncrement++;
     }
 
     clone() {
         const clonedCalculable: Calculable = this.durationCalculable.clone();
         const clonedInstance = new CalcWrapper(this.operand, clonedCalculable);
-        clonedInstance.id = this.id;
         return clonedInstance;
     }
 }
