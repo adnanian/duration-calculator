@@ -113,17 +113,29 @@ export class Duration extends Calculable {
      */
     times(scale: Scale): Duration {
         const scaleVal: number = scale.value;
-        // Multiple the milliseconds place by the scale, then carry the full seconds to the seconds place.
-        const millisProduct: number = this.milliseconds * scaleVal;
-        const millisPlace: number = millisProduct % Duration.MILLIS_PER_SECOND;
-        // Multiply the seconds place by the scale, then carry the full minutes to the minutes place.
-        const secondsProduct: number = Math.floor(millisProduct / Duration.MILLIS_PER_SECOND) + (this.seconds * scaleVal);
-        const secondsPlace: number = secondsProduct % Duration.SECONDS_PER_MINUTE;
-        // Multiply the minutes place by the scale, then carry the full minutes to the hours place.
-        const minutesProduct: number = Math.floor(secondsProduct / Duration.SECONDS_PER_MINUTE) + (this.minutes * scaleVal);
-        const minutesPlace: number = minutesProduct % Duration.MINUTES_PER_HOUR;
-        // Multiply the hours place by the scale.
-        const hoursPlace: number = Math.floor(minutesProduct / Duration.MINUTES_PER_HOUR) + (this.hours * scaleVal);
+        // Step 1
+        const hoursProduct: number = this.hours * scaleVal;
+        let hoursPlace: number = Math.floor(hoursProduct);
+        const hoursRemainder: number = hoursProduct - hoursPlace;
+        // Step 2
+        const minutesProduct: number = (Duration.MINUTES_PER_HOUR * hoursRemainder) + (this.minutes * scaleVal);
+        let minutesPlace: number = Math.floor(minutesProduct);
+        const minutesRemainder: number = minutesProduct - minutesPlace;
+        // Step 3
+        const secondsProduct: number = (Duration.SECONDS_PER_MINUTE * minutesRemainder) + (this.seconds * scaleVal);
+        let secondsPlace: number = Math.floor(secondsProduct);
+        const secondsRemainder: number = secondsProduct - secondsPlace;
+        // Step 4 
+        const millisProduct: number = Math.floor((Duration.MILLIS_PER_SECOND * secondsRemainder) + (this.milliseconds * scaleVal));
+        let millisPlace: number = millisProduct % Duration.MILLIS_PER_SECOND;
+        // Step 5
+        const secondsSum: number = Math.floor(millisProduct / Duration.MILLIS_PER_SECOND) + secondsPlace;
+        secondsPlace = secondsSum % Duration.SECONDS_PER_MINUTE;
+        // Step 6
+        const minutesSum: number = Math.floor(secondsProduct / Duration.SECONDS_PER_MINUTE) + minutesPlace;
+        minutesPlace = minutesSum % Duration.MINUTES_PER_HOUR;
+        // Step 7
+        hoursPlace = Math.floor(minutesSum / Duration.MINUTES_PER_HOUR) + hoursPlace;
         return new Duration(hoursPlace, minutesPlace, secondsPlace, millisPlace);
     }
 
@@ -136,18 +148,27 @@ export class Duration extends Calculable {
         const scaleVal: number = scale.value;
         // Divide the hours place by the scale...
         const hoursQuotient: number = this.hours / scaleVal;
-        const hoursPlace: number = Math.floor(hoursQuotient);
+        let hoursPlace: number = Math.floor(hoursQuotient);
         const hoursRemainder: number = hoursQuotient - hoursPlace;
-        //
+        // Step 2
         const minutesQuotient: number = (Duration.MINUTES_PER_HOUR * hoursRemainder) + (this.minutes / scaleVal);
-        const minutesPlace: number = Math.floor(minutesQuotient);
+        let minutesPlace: number = Math.floor(minutesQuotient);
         const minutesRemainder: number = minutesQuotient - minutesPlace;
-        //
+        // Step 3
         const secondsQuotient: number = (Duration.SECONDS_PER_MINUTE * minutesRemainder) + (this.seconds / scaleVal);
-        const secondsPlace: number = Math.floor(secondsQuotient);
+        let secondsPlace: number = Math.floor(secondsQuotient);
         const secondsRemainder: number = secondsQuotient - secondsPlace;
-        //
-        const millisPlace: number = Math.floor((Duration.MILLIS_PER_SECOND * secondsRemainder) + (this.milliseconds / scaleVal));
+        // Step 4
+        const millisQuotient: number = Math.floor((Duration.MILLIS_PER_SECOND * secondsRemainder) + (this.milliseconds / scaleVal));
+        let millisPlace: number = millisQuotient % Duration.MILLIS_PER_SECOND;
+        // Step 5
+        const secondsSum: number = Math.floor(millisQuotient / Duration.MILLIS_PER_SECOND) + secondsPlace;
+        secondsPlace = secondsSum % Duration.SECONDS_PER_MINUTE;
+        // Step 6
+        const minutesSum: number = Math.floor(secondsQuotient / Duration.SECONDS_PER_MINUTE) + minutesPlace;
+        minutesPlace = minutesSum % Duration.MINUTES_PER_HOUR;
+        // Step 7
+        hoursPlace = Math.floor(minutesSum / Duration.MINUTES_PER_HOUR) + hoursPlace;
         return new Duration(hoursPlace, minutesPlace, secondsPlace, millisPlace);
 
     }

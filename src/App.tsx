@@ -47,7 +47,6 @@ const App = () => {
     type DurationField = 'hours' | 'minutes' | 'seconds' | 'milliseconds';
     const newWrappers = calculableArgs.map((cw) => {
       if (e.target.id.includes(cw.id.toString())) {
-
         const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'));
         let newCW: dt.CalcWrapper = cw.clone();
         if (fieldName === 'operand') {
@@ -61,15 +60,21 @@ const App = () => {
         } else {
           // console.log(newCW.durationCalculable instanceof dt.Duration);
           if (newCW.durationCalculable instanceof dt.Duration) {
-            newCW.durationCalculable[fieldName as DurationField] = Number.parseInt(e.target.value);
+            try {
+              newCW.durationCalculable[fieldName as DurationField] = Number.parseInt(e.target.value);
+            } catch (error) {
+              console.error("Call here")
+              newCW.durationCalculable[fieldName as DurationField] = 0;
+            }
           } else {
-            console.log(newCW.durationCalculable instanceof dt.Scale);
-            console.log(e.target.value);
-            const scale = newCW.durationCalculable as dt.Scale;
-            scale.value = Number.parseFloat(e.target.value);
-            newCW.durationCalculable = scale;
+            try {
+              const scale = newCW.durationCalculable as dt.Scale;
+              scale.value = Number.parseFloat(e.target.value);
+              newCW.durationCalculable = scale;
+            } catch (error) {
+              // DO NOTHING
+            }
           }
-          console.log(newCW.durationCalculable);
         }
         return newCW;
       } else {
