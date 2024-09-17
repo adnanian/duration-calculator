@@ -9,5 +9,8 @@
     "operation": "Operation",
     "scale": "Scale",
     "compute": "Compute!",
-    "result": "Result: {{hours}} hrs, {{minutes}} min, {{seconds}} sec, {{milliseconds}} millis"
+    "result": "Result: {{hours}} hrs, {{minutes}} min, {{seconds}} sec, {{milliseconds}} millis",
+    "rows": "Rows: {{rowCount}}",
+    "addRows": "Add Rows",
+    "rowTooltip": "Note: the maximum number of rows for this table is {{maxRowCount}}."
 }

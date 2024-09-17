@@ -9,5 +9,8 @@
     "operation": "عملية",
     "scale": "المضروب به / المقسوم عليه",
     "compute": "إجراء حساب",
-    "result": "نتيجة: {{hours}} س, {{minutes}} د, {{seconds}} ث, {{milliseconds}} م"
+    "result": "نتيجة: {{hours}} س, {{minutes}} د, {{seconds}} ث, {{milliseconds}} م",
+    "rows": "صفوف: {{rowCount}}",
+    "addRows": "إضافة صفوف",
+    "rowTooltip": "ملاحظة: الحد الأقصى لعدد الصفوف لهذا الجدول هو {{maxRowCount}}."
 }

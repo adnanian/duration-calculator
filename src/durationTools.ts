@@ -18,7 +18,7 @@ export class Scale extends Calculable {
         }
         super();
         this.value = value;
-        
+
     }
 
     // Cloning method for deep copy
@@ -85,7 +85,7 @@ export class Duration extends Calculable {
         const hoursPlace: number = Math.floor(minutesSum / Duration.MINUTES_PER_HOUR) + this.hours + durationToAdd.hours;
         return new Duration(hoursPlace, minutesPlace, secondsPlace, millisPlace);
     }
-    
+
     /**
      * 
      * @param durationToSubtract 
@@ -160,13 +160,13 @@ export class Duration extends Calculable {
         '-': this.minus.bind(this),
         '×': this.times.bind(this),
         '÷': this.dividedBy.bind(this),
-        "N/A": (calculable: any) => {throw new Error("Please place conditionals before calling operationMap.")}
+        "N/A": (calculable: any) => { throw new Error("Please place conditionals before calling operationMap.") }
     };
 
     // Perform the calculation based on the symbol
     // Article of Reference: https://www.typescripttutorial.net/typescript-tutorial/typescript-function-overloadings/
-    performCalculation(argument: Duration, opSymbol: '+' | '-'): Duration;
-    performCalculation(argument: Scale, opSymbol: '×' | '÷'): Duration;
+    // performCalculation(argument: Duration, opSymbol: '+' | '-'): Duration;
+    // performCalculation(argument: Scale, opSymbol: '×' | '÷'): Duration;
     performCalculation(argument: Calculable, opSymbol: Operand): Duration {
         const operation = this.operationMap[opSymbol];
         return operation(argument);
@@ -206,4 +206,14 @@ export class CalcWrapper {
         clonedInstance.id = this.id;
         return clonedInstance;
     }
+}
+
+// Type guard for Duration
+export function isDuration(calculable: Calculable): calculable is Duration {
+    return calculable instanceof Duration;
+}
+
+// Type guard for Scale
+export function isScale(calculable: Calculable): calculable is Scale {
+    return calculable instanceof Scale;
 }

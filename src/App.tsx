@@ -39,12 +39,15 @@ const App = () => {
 
   // Event Listeners
 
+  /**
+   * 
+   * @param e 
+   */
   function handleCalculableChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void {
     type DurationField = 'hours' | 'minutes' | 'seconds' | 'milliseconds';
-    type ScaleField = 'value';
     const newWrappers = calculableArgs.map((cw) => {
       if (e.target.id.includes(cw.id.toString())) {
-        
+
         const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'));
         let newCW: dt.CalcWrapper = cw.clone();
         if (fieldName === 'operand') {
@@ -77,7 +80,19 @@ const App = () => {
   }
 
   function compute(): void {
-
+    let totalDuration: dt.Duration = new dt.Duration(0,0,0,0);
+    calculableArgs.forEach((row, index) => {
+      if (index === 0) {
+        totalDuration = row.durationCalculable as dt.Duration;
+      } else {
+        const correctType: any = dt.isDuration(row.durationCalculable) ? dt.Duration : dt.Scale;
+        totalDuration = totalDuration.performCalculation(
+          row.durationCalculable as typeof correctType,
+          row.operand
+        );
+      }
+    });
+    setDurationResult(totalDuration);
   }
 
   /**
@@ -92,6 +107,34 @@ const App = () => {
     setLanguage(LanguageMap[langCode]);
   };
 
+  /**
+   * TODO
+   * 
+   * @param e 
+   */
+  function handleRowAdjustment(e: ChangeEvent<HTMLInputElement>): void {
+    const newRowCount: number = Number.parseInt(e.target.value);
+    if (newRowCount > calculableArgs.length) {
+      const newRows: dt.CalcWrapper[] = Array(newRowCount - calculableArgs.length).fill(null).map(() => {
+        return new dt.CalcWrapper('+', new dt.Duration(0, 0, 0, 0));
+      });
+      setCalculableArgs([...calculableArgs, ...newRows]);
+    } else if (newRowCount < calculableArgs.length) {
+      setCalculableArgs((rows: dt.CalcWrapper[]): dt.CalcWrapper[] => {
+        const newRows = rows.slice(0, newRowCount).map((row, index) => {
+          row.id = index;
+          return row;
+        });
+        return newRows;
+      });
+    }
+  }
+
+  // Testing if rows return to 0
+  // calculableArgs.forEach((row) => {
+  //   console.log(row.id);
+  // });
+
   return (
     <main dir={language?.dir || "ltr"}>
       <select defaultValue={"en"} onChange={handleLanguageSelection}>
@@ -99,28 +142,44 @@ const App = () => {
       </select>
       <h1>{t("title")}</h1>
       <h2>{t("subtitle")}</h2>
-      <table>
-        <thead>
-          <tr>
-            <th>{t("hours")}</th>
-            <th>{t("minutes")}</th>
-            <th>{t("seconds")}</th>
-            <th>{t("milliseconds")}</th>
-            <th>{t("operation")}</th>
-            <th>{t("scale")}</th>
-          </tr>
-        </thead>
-        <tbody>
-          {calcContainers}
-        </tbody>
-      </table>
-      <button onClick={compute}>{t("compute")}</button>
+      <h3>{t("rows", { rowCount: calculableArgs.length })}</h3>
+      <div id="table-controls">
+        <div className="sliderContainer">
+          <input
+            type="range"
+            min={MIN_ROW_SIZE.toString()}
+            max={MAX_ROW_SIZE.toString()}
+            step="1"
+            value={calculableArgs.length}
+            onChange={handleRowAdjustment}
+          />
+        </div>
+        <button onClick={compute}>{t("compute")}</button>
+      </div>
       <p>{t("result", {
         hours: durationResult.hours,
         minutes: durationResult.minutes,
         seconds: durationResult.seconds,
         milliseconds: durationResult.milliseconds
       })}</p>
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>{t("hours")}</th>
+              <th>{t("minutes")}</th>
+              <th>{t("seconds")}</th>
+              <th>{t("milliseconds")}</th>
+              <th>{t("operation")}</th>
+              <th>{t("scale")}</th>
+            </tr>
+          </thead>
+          <tbody>
+            {calcContainers}
+          </tbody>
+        </table>
+      </div>
+
     </main>
   )
 }
