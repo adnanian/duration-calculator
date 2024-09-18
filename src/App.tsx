@@ -48,8 +48,9 @@ const App = () => {
    */
   function handleCalculableChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void {
     type DurationField = 'hours' | 'minutes' | 'seconds' | 'milliseconds';
+    const targetIndex: number = Number.parseInt(e.target.id.substring(e.target.id.lastIndexOf('-') + 1));
     const newWrappers = calculableArgs.map((cw, index) => {
-      if (e.target.id.includes(index.toString())) {
+      if (index === targetIndex) {
         const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'))
         let newCW: dt.CalcWrapper = cw.clone();
         if (fieldName === 'operand') {
