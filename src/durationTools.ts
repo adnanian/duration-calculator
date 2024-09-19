@@ -36,14 +36,22 @@ export class Duration extends Calculable {
     milliseconds: number;
 
     // CONSTRAINTS AND VALIDATION
-    private static readonly MAX_MINUTE_VALUE: number = 59;
-    private static readonly MAX_SECOND_VALUE: number = 59;
-    private static readonly MILLI_VALUE_LIMIT: number = 1000;
+    // private static readonly MAX_MINUTE_VALUE: number = 59;
+    // private static readonly MAX_SECOND_VALUE: number = 59;
+    // private static readonly MILLI_VALUE_LIMIT: number = 1000;
 
     // CONVERSIONS
+
+    /**
+     * lalalal
+     */
     private static readonly MILLIS_PER_SECOND: number = 1000;
     private static readonly SECONDS_PER_MINUTE: number = 60;
     private static readonly MINUTES_PER_HOUR: number = 60;
+    //
+    private static readonly MILLIS_PER_MINUTE = this.MILLIS_PER_SECOND * this.SECONDS_PER_MINUTE;
+    private static readonly MILLIS_PER_HOUR = this.MILLIS_PER_MINUTE * this.MINUTES_PER_HOUR;
+    private static readonly SECONDS_PER_HOUR = this.SECONDS_PER_MINUTE * this.MINUTES_PER_HOUR;
 
     constructor(hours: number, minutes: number, seconds: number, milliseconds: number) {
         // if (!Number.isInteger(hours) || hours < 0) {
@@ -193,6 +201,34 @@ export class Duration extends Calculable {
         return operation(argument);
     }
 
+    toHours(): number {
+        const minutesToPartialHour: number = this.minutes / Duration.MINUTES_PER_HOUR;
+        const secondsToPartialHour: number = this.seconds / Duration.SECONDS_PER_HOUR;
+        const millisToPartialHour: number = this.milliseconds / Duration.MILLIS_PER_HOUR;
+        return (this.hours + minutesToPartialHour + secondsToPartialHour + millisToPartialHour);
+    }
+
+    toMinutes(): number {
+        const hoursToMinutes: number = this.hours * Duration.MINUTES_PER_HOUR;
+        const secondsToPartialMinute: number = this.seconds / Duration.SECONDS_PER_MINUTE;
+        const millisToPartialMinute: number = this.milliseconds / Duration.MILLIS_PER_MINUTE;
+        return (hoursToMinutes + this.minutes + secondsToPartialMinute + millisToPartialMinute);
+    }
+
+    toSeconds(): number {
+        const hoursToSeconds: number = this.hours * Duration.SECONDS_PER_HOUR;
+        const minutesToSeconds: number = this.minutes * Duration.SECONDS_PER_MINUTE;
+        const millisToPartialSecond: number = this.milliseconds / Duration.MILLIS_PER_SECOND;
+        return (hoursToSeconds + minutesToSeconds + this.seconds + millisToPartialSecond);
+    }
+
+    toMilliseconds(): number {
+        const hoursToMillis: number = this.hours * Duration.MILLIS_PER_HOUR;
+        const minutesToMillis: number = this.minutes * Duration.MILLIS_PER_MINUTE;
+        const secondsToMillis: number = this.seconds * Duration.MILLIS_PER_SECOND;
+        return (hoursToMillis + minutesToMillis + secondsToMillis + this.milliseconds);
+    }
+
     // Cloning method for deep copy
     clone(): Duration {
         const cloned = new Duration(this.hours, this.minutes, this.seconds, this.milliseconds);
@@ -209,13 +245,8 @@ export class CalcWrapper {
     operand: Operand;
     durationCalculable: Calculable;
 
-    static idIncrement: number = 0;
-
     constructor(operand: Operand, durationCalculable: Calculable) {
         this.operand = operand;
-        if (durationCalculable instanceof Scale && CalcWrapper.idIncrement === 0) {
-            throw new Error("The first calculable container must contain a Duration and NOT a scale.");
-        }
         this.durationCalculable = durationCalculable;
     }
 

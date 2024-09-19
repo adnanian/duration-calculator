@@ -50,6 +50,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     step="1"
                     value={hours}
                     readOnly={durationInputReadOnly}
+                    disabled={durationInputReadOnly}
                     onChange={onInputChange}
                 />
             </td>
@@ -62,6 +63,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     step="1"
                     value={minutes}
                     readOnly={durationInputReadOnly}
+                    disabled={durationInputReadOnly}
                     onChange={onInputChange}
                 />
             </td>
@@ -74,6 +76,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     step="1"
                     value={seconds}
                     readOnly={durationInputReadOnly}
+                    disabled={durationInputReadOnly}
                     onChange={onInputChange}
                 />
             </td>
@@ -86,6 +89,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     step="1"
                     value={milliseconds}
                     readOnly={durationInputReadOnly}
+                    disabled={durationInputReadOnly}
                     onChange={onInputChange}
                 />
             </td>
@@ -109,6 +113,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     step="0.001"
                     value={scaleValue}
                     readOnly={scaleInputReadOnly}
+                    disabled={scaleInputReadOnly}
                     onChange={onInputChange}
                 />
             </td>

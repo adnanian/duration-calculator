@@ -1,12 +1,16 @@
 import React, { ChangeEvent, useState } from 'react';
 import { useTranslation } from "react-i18next";
 import * as dt from './durationTools';
-import InputRow from './components/InputRow';
 import { Language, LanguageMap } from './lang';
+import ResultsPanel from './components/ResultsPanel';
+import InputTable from './InputTable';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import TableControls from './components/TableControls';
 
 const App = () => {
   const MIN_ROW_SIZE: number = 2, MAX_ROW_SIZE: number = 100;
-  const { i18n, t } = useTranslation();
+  const { i18n } = useTranslation();
   // Array of durations, scales, and the operands.
   // Must first initialize to null so that id can increment.
   const [calculableArgs, setCalculableArgs] = useState<dt.CalcWrapper[]>((): dt.CalcWrapper[] => {
@@ -17,29 +21,11 @@ const App = () => {
   });
   // Computed duration.
   const [durationResult, setDurationResult] = useState<dt.Duration>(new dt.Duration(0, 0, 0, 0));
-  // calculable container components
-  const calcContainers = calculableArgs.map((calcWrapper, index) => {
-    return (
-      <InputRow
-        key={index}
-        index={index}
-        calcWrapper={calcWrapper}
-        onInputChange={handleCalculableChange}
-      />
-    )
-  });
+ 
 
   // Initial language
   const [language, setLanguage] = useState<Language>(LanguageMap.ENGLISH);
-  // List of all available languages for this application. See /src/public/i18n
-  const languageOptions = Object.values(LanguageMap).map((language) => {
-    return (
-      <option key={language.code} value={language.code}>
-        {language.nativeName}
-      </option>
-    );
-  });
-
+  
   // Event Listeners
 
   /**
@@ -86,11 +72,6 @@ const App = () => {
       if (index === 0) {
         totalDuration = row.durationCalculable as dt.Duration;
       } else {
-        // const correctType: any = dt.isDuration(row.durationCalculable) ? dt.Duration : dt.Scale;
-        // totalDuration = totalDuration.performCalculation(
-        //   row.durationCalculable as typeof correctType,
-        //   row.operand
-        // );
         if (dt.isDuration(row.durationCalculable)) {
           totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Duration, row.operand);
         } else if (dt.isScale(row.durationCalculable)) {
@@ -121,87 +102,41 @@ const App = () => {
    */
   function handleRowAdjustment(e: ChangeEvent<HTMLInputElement>): void {
     const newRowCount: number = Number.parseInt(e.target.value);
+    if (newRowCount < MIN_ROW_SIZE || newRowCount > MAX_ROW_SIZE) {
+      throw new Error(`Row count must be between ${MIN_ROW_SIZE} and ${MAX_ROW_SIZE}.`);
+    }
     if (newRowCount > calculableArgs.length) {
       const newRows: dt.CalcWrapper[] = Array(newRowCount - calculableArgs.length).fill(null).map(() => {
         return new dt.CalcWrapper('+', new dt.Duration(0, 0, 0, 0));
       });
       setCalculableArgs([...calculableArgs, ...newRows]);
     } else if (newRowCount < calculableArgs.length) {
-      // setCalculableArgs((rows: dt.CalcWrapper[]): dt.CalcWrapper[] => {
-      //   const newRows = rows.slice(0, newRowCount).map((row, index) => {
-      //     row.id = index;
-      //     return row;
-      //   });
-      //   return newRows;
-      // });
       setCalculableArgs(calculableArgs.slice(0, newRowCount));
     }
   }
 
-  // Testing if rows return to 0
-  // calculableArgs.forEach((row) => {
-  //   console.log(row.id);
-  // });
-
   // console.log(calculableArgs);
-  console.log(calcContainers);
 
   return (
     <React.Fragment>
-      <header dir={language?.dir || "ltr"}>
-        <select defaultValue={"en"} onChange={handleLanguageSelection}>
-          {languageOptions}
-        </select>
-        <h1>{t("title")}</h1>
-        <h2>{t("subtitle")}</h2>
-      </header>
+      <Header
+        targetLanguage={language}
+        onLanguageSelection={handleLanguageSelection}
+      />
       <main dir={language?.dir || "ltr"}>
         <div>
-          <div id="table-controls">
-            <div className="sliderContainer">
-              <h3>{t("rows", { rowCount: calculableArgs.length })}</h3>
-              <span>
-                {MIN_ROW_SIZE}
-                <input
-                  name="rowSlider"
-                  type="range"
-                  min={MIN_ROW_SIZE.toString()}
-                  max={MAX_ROW_SIZE.toString()}
-                  step="1"
-                  value={calculableArgs.length}
-                  onChange={handleRowAdjustment}
-                />
-                {MAX_ROW_SIZE}
-              </span>
-            </div>
-            <button onClick={compute}>{t("compute")}</button>
-          </div>
-          <p>{t("result", {
-            hours: durationResult.hours,
-            minutes: durationResult.minutes,
-            seconds: durationResult.seconds,
-            milliseconds: durationResult.milliseconds
-          })}</p>
+          <TableControls
+            minRowSize={MIN_ROW_SIZE}
+            maxRowSize={MAX_ROW_SIZE}
+            currentRowCount={calculableArgs.length}
+            onAdjustRow={handleRowAdjustment}
+            onCompute={compute}
+          />
+          <ResultsPanel duration={durationResult}/>
         </div>
-        <div className="table-container">
-          <table>
-            <thead>
-              <tr>
-                <th>{t("rowNumLabel")}</th>
-                <th>{t("hours")}</th>
-                <th>{t("minutes")}</th>
-                <th>{t("seconds")}</th>
-                <th>{t("milliseconds")}</th>
-                <th>{t("operation")}</th>
-                <th>{t("scale")}</th>
-              </tr>
-            </thead>
-            <tbody>
-              {calcContainers}
-            </tbody>
-          </table>
-        </div>
+        <InputTable calcWrappers={calculableArgs} onInputChange={handleCalculableChange}/>
       </main>
+      <Footer/>
     </React.Fragment>
   )
 }
