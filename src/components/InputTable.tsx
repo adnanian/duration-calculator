@@ -1,7 +1,8 @@
 import React, { ChangeEventHandler } from "react";
 import { useTranslation } from "react-i18next";
-import { CalcWrapper } from "./durationTools";
-import InputRow from "./components/InputRow";
+import { CalcWrapper } from "../durationTools";
+import InputRow from "./InputRow";
+import "../styles/InputTable.css";
 
 /**
  * lalala
@@ -42,7 +43,7 @@ const InputTable: React.FC<CalcWrapperManager> = ({calcWrappers, onInputChange})
                         <th>{t("minutes")}</th>
                         <th>{t("seconds")}</th>
                         <th>{t("milliseconds")}</th>
-                        <th>{t("operation")}</th>
+                        <th>{t("operand")}</th>
                         <th>{t("scale")}</th>
                     </tr>
                 </thead>

@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import * as dt from './durationTools';
 import { Language, LanguageMap } from './lang';
 import ResultsPanel from './components/ResultsPanel';
-import InputTable from './InputTable';
+import InputTable from './components/InputTable';
 import Header from './components/Header';
 import Footer from './components/Footer';
 import TableControls from './components/TableControls';
@@ -65,21 +65,28 @@ const App = () => {
     setCalculableArgs(newWrappers);
   }
 
+  /**
+   * TODO 
+   */
   function compute(): void {
-    let totalDuration: dt.Duration = new dt.Duration(0, 0, 0, 0);
-    calculableArgs.forEach((row, index) => {
-      console.log(row.operand);
-      if (index === 0) {
-        totalDuration = row.durationCalculable as dt.Duration;
-      } else {
-        if (dt.isDuration(row.durationCalculable)) {
-          totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Duration, row.operand);
-        } else if (dt.isScale(row.durationCalculable)) {
-          totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Scale, row.operand);
+    try {
+      let totalDuration: dt.Duration = new dt.Duration(0, 0, 0, 0);
+      calculableArgs.forEach((row, index) => {
+        // console.log(row.operand);
+        if (index === 0) {
+          totalDuration = row.durationCalculable as dt.Duration;
+        } else {
+          if (dt.isDuration(row.durationCalculable)) {
+            totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Duration, row.operand);
+          } else if (dt.isScale(row.durationCalculable)) {
+            totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Scale, row.operand);
+          }
         }
-      }
-    });
-    setDurationResult(totalDuration);
+      });
+      setDurationResult(totalDuration);
+    } catch (error) {
+      alert(error);
+    }
 
   }
 
@@ -124,17 +131,17 @@ const App = () => {
         onLanguageSelection={handleLanguageSelection}
       />
       <main dir={language?.dir || "ltr"}>
-        <div>
-          <TableControls
-            minRowSize={MIN_ROW_SIZE}
-            maxRowSize={MAX_ROW_SIZE}
-            currentRowCount={calculableArgs.length}
-            onAdjustRow={handleRowAdjustment}
-            onCompute={compute}
-          />
+        <TableControls
+          minRowSize={MIN_ROW_SIZE}
+          maxRowSize={MAX_ROW_SIZE}
+          currentRowCount={calculableArgs.length}
+          onAdjustRow={handleRowAdjustment}
+          onCompute={compute}
+        />
+        <div className="input-output">
           <ResultsPanel duration={durationResult}/>
+          <InputTable calcWrappers={calculableArgs} onInputChange={handleCalculableChange}/>
         </div>
-        <InputTable calcWrappers={calculableArgs} onInputChange={handleCalculableChange}/>
       </main>
       <Footer/>
     </React.Fragment>

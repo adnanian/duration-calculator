@@ -1,5 +1,6 @@
 import { Duration } from "../durationTools";
 import { useTranslation } from "react-i18next";
+import "../styles/ResultsPanel.css";
 
 interface DurationResult {
     duration: Duration
@@ -9,7 +10,7 @@ const ResultsPanel: React.FC<DurationResult> = ({ duration }) => {
     const { t } = useTranslation();
 
     return (
-        <div>
+        <div id="results-panel">
             <h4>{t("result")}</h4>
             <p>{t("durationResult", {
                 hours: duration.hours,

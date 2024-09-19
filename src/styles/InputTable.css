@@ -1,0 +1,55 @@
+.table-container {
+    width: 270px;
+    height: 500px;
+    overflow-y: auto;
+    overflow-x: auto;
+    margin-top: 15px;
+    margin-bottom: 16px;
+    border: 4px inset silver;
+    border-radius: 15px;
+    padding: 6px;
+    background-color: rgba(145, 207, 207, 0.63);
+}
+
+.table-container * {
+    border: 2px double black;
+    border-radius: 6px;
+    text-align: inherit;
+}
+
+thead tr {
+    background-color: silver;
+}
+
+thead th, tbody td {
+    padding: 2px 5px;
+}
+
+:is(thead, tbody) input {
+    font-size: 0.9em;
+}
+
+.table-container :is(select, option) {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+.table-container select {
+    font-size: 2.5em;
+}
+
+.table-container option {
+    font-size: 1.0em;
+}
+
+@media only screen and (min-width: 600px) {
+    .table-container {
+        width: 85%;
+        margin: 15px auto 16px;
+    }
+}
+
+@media only screen and (min-width: 1358px) {
+    #table-container {
+        height: 100px !important;
+    }
+}

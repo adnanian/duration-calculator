@@ -1,6 +1,7 @@
 import React, { ChangeEventHandler } from "react";
 import { Language, LanguageMap } from "../lang";
 import { useTranslation } from "react-i18next";
+import "../styles/Header.css";
 
 /**
  * TODO
@@ -29,6 +30,7 @@ const Header: React.FC<TopPageManagement> = ({ targetLanguage, onLanguageSelecti
 
     return (
         <header dir={targetLanguage?.dir || "ltr"}>
+            <p><b>{t("label")}</b></p>
             <select defaultValue={"en"} onChange={onLanguageSelection}>
                 {languageOptions}
             </select>

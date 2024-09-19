@@ -154,6 +154,10 @@ export class Duration extends Calculable {
      */
     dividedBy(scale: Scale): Duration {
         const scaleVal: number = scale.value;
+        // Ensure that the scale is not zero
+        if (scaleVal === 0) {
+            throw new Error("Cannot divide by zero.");
+        }
         // Divide the hours place by the scale...
         const hoursQuotient: number = this.hours / scaleVal;
         let hoursPlace: number = Math.floor(hoursQuotient);

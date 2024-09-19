@@ -1,3 +1,7 @@
+import { useTranslation } from "react-i18next"
+
 export default function Loading() {
-    return <h1>Loading...</h1>
+    const {t} = useTranslation();
+
+    return <h1>{t("loading")}</h1>
 }
