@@ -11,8 +11,8 @@ const App = () => {
   // Must first initialize to null so that id can increment.
   const [calculableArgs, setCalculableArgs] = useState<dt.CalcWrapper[]>((): dt.CalcWrapper[] => {
     const cwArray: dt.CalcWrapper[] = Array(MIN_ROW_SIZE).fill(null);
-    cwArray[0] = new dt.CalcWrapper("N/A", new dt.Duration(0,0,0,0));
-    cwArray[1] = new dt.CalcWrapper('+', new dt.Duration(0,0,0,0));
+    cwArray[0] = new dt.CalcWrapper("N/A", new dt.Duration(0, 0, 0, 0));
+    cwArray[1] = new dt.CalcWrapper('+', new dt.Duration(0, 0, 0, 0));
     return cwArray;
   });
   // Computed duration.
@@ -147,52 +147,62 @@ const App = () => {
   console.log(calcContainers);
 
   return (
-    <main dir={language?.dir || "ltr"}>
-      <select defaultValue={"en"} onChange={handleLanguageSelection}>
-        {languageOptions}
-      </select>
-      <h1>{t("title")}</h1>
-      <h2>{t("subtitle")}</h2>
-      <h3>{t("rows", { rowCount: calculableArgs.length })}</h3>
-      <div id="table-controls">
-        <div className="sliderContainer">
-          <input
-            type="range"
-            min={MIN_ROW_SIZE.toString()}
-            max={MAX_ROW_SIZE.toString()}
-            step="1"
-            value={calculableArgs.length}
-            onChange={handleRowAdjustment}
-          />
+    <React.Fragment>
+      <header dir={language?.dir || "ltr"}>
+        <select defaultValue={"en"} onChange={handleLanguageSelection}>
+          {languageOptions}
+        </select>
+        <h1>{t("title")}</h1>
+        <h2>{t("subtitle")}</h2>
+      </header>
+      <main dir={language?.dir || "ltr"}>
+        <div>
+          <div id="table-controls">
+            <div className="sliderContainer">
+              <h3>{t("rows", { rowCount: calculableArgs.length })}</h3>
+              <span>
+                {MIN_ROW_SIZE}
+                <input
+                  name="rowSlider"
+                  type="range"
+                  min={MIN_ROW_SIZE.toString()}
+                  max={MAX_ROW_SIZE.toString()}
+                  step="1"
+                  value={calculableArgs.length}
+                  onChange={handleRowAdjustment}
+                />
+                {MAX_ROW_SIZE}
+              </span>
+            </div>
+            <button onClick={compute}>{t("compute")}</button>
+          </div>
+          <p>{t("result", {
+            hours: durationResult.hours,
+            minutes: durationResult.minutes,
+            seconds: durationResult.seconds,
+            milliseconds: durationResult.milliseconds
+          })}</p>
         </div>
-        <button onClick={compute}>{t("compute")}</button>
-      </div>
-      <p>{t("result", {
-        hours: durationResult.hours,
-        minutes: durationResult.minutes,
-        seconds: durationResult.seconds,
-        milliseconds: durationResult.milliseconds
-      })}</p>
-      <div className="table-container">
-        <table>
-          <thead>
-            <tr>
-              <th>{t("rowNumLabel")}</th>
-              <th>{t("hours")}</th>
-              <th>{t("minutes")}</th>
-              <th>{t("seconds")}</th>
-              <th>{t("milliseconds")}</th>
-              <th>{t("operation")}</th>
-              <th>{t("scale")}</th>
-            </tr>
-          </thead>
-          <tbody>
-            {calcContainers}
-          </tbody>
-        </table>
-      </div>
-
-    </main>
+        <div className="table-container">
+          <table>
+            <thead>
+              <tr>
+                <th>{t("rowNumLabel")}</th>
+                <th>{t("hours")}</th>
+                <th>{t("minutes")}</th>
+                <th>{t("seconds")}</th>
+                <th>{t("milliseconds")}</th>
+                <th>{t("operation")}</th>
+                <th>{t("scale")}</th>
+              </tr>
+            </thead>
+            <tbody>
+              {calcContainers}
+            </tbody>
+          </table>
+        </div>
+      </main>
+    </React.Fragment>
   )
 }
 

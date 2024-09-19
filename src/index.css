@@ -6,6 +6,46 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-align: center;
+}
+
+main {
+  display: flex;
+  align-items: center;
+  justify-content: space-evenly;
+  max-height: 400px;
+}
+
+.table-container {
+  width: fit-content;
+  max-height: 400px;
+  overflow-y: auto;
+  overflow-x: hidden;
+  border: 5px inset black;
+}
+
+.table-container * {
+  border: 1px solid black;
+  font-size: 16px;
+  text-align: center;
+}
+
+button {
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.table-container :is(input, select, option) {
+  font-weight: bold;
+}
+
+p {
+  font-size: 30px;
+}
+
+header :is(select, option) {
+  font-size: 18px;
+  font-weight: bold;
 }
 
 code {
