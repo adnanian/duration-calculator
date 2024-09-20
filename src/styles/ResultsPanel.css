@@ -32,6 +32,7 @@
 
 @media only screen and (min-width: 1358px) {
     #results-panel {
+        width: fit-content;
         height: fit-content;
     }
 }

@@ -31,7 +31,12 @@ const TableControls: React.FC<TableAdjuster> = ({ minRowSize, maxRowSize, curren
           <span className="slider-end">{maxRowSize}</span>
         </span>
       </div>
-      <button onClick={onCompute}>{t("compute")}</button>
+      <button
+        onClick={onCompute}
+        title={t("tooltips.compute")}
+      >
+        {t("compute")}
+      </button>
     </div>
   );
 }

@@ -17,6 +17,11 @@
     text-align: inherit;
 }
 
+/* thead {
+    width: 100%;
+    position: sticky;
+} */
+
 thead tr {
     background-color: silver;
 }
@@ -49,7 +54,8 @@ thead th, tbody td {
 }
 
 @media only screen and (min-width: 1358px) {
-    #table-container {
-        height: 100px !important;
+    .table-container {
+        width: fit-content;
+        height: 300px !important;
     }
 }

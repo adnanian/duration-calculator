@@ -15,8 +15,8 @@
 
 #table-controls button {
     font-size: 18px;
-    font-weight: bold;
-    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-weight: bolder;
+    font-family: 'Times New Roman', Times, serif;
     border: 5px outset #333;
     border-radius: 10px;
 }

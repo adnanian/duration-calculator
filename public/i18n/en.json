@@ -19,5 +19,11 @@
     "rows": "Rows: {{rowCount}}",
     "rowNumLabel": "Row #",
     "addRows": "Add Rows",
-    "rowTooltip": "Note: the maximum number of rows for this table is {{maxRowCount}}."
+    "rowTooltip": "Note: the maximum number of rows for this table is {{maxRowCount}}.",
+    "errors": {
+        "divideByZero": "You cannot divide by zero!"
+    },
+    "tooltips": {
+        "compute": "Click this button to compute the total duration."
+    }
 }

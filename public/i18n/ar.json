@@ -19,5 +19,11 @@
     "rows": "صفوف: {{rowCount}}",
     "rowNumLabel": "صف #",
     "addRows": "إضافة صفوف",
-    "rowTooltip": "ملاحظة: الحد الأقصى لعدد الصفوف لهذا الجدول هو {{maxRowCount}}."
+    "rowTooltip": "ملاحظة: الحد الأقصى لعدد الصفوف لهذا الجدول هو {{maxRowCount}}.",
+    "errors": {
+        "divideByZero": "لا يمكنك القسمة على صفر!"
+    },
+    "tooltips": {
+        "compute": "اضغط هذا الزر لإجراء حساب المدة الإجمالية."
+    }
 }
