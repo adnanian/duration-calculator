@@ -1,5 +1,6 @@
-import React, { ChangeEventHandler } from "react";
+import React, { ChangeEventHandler, useTransition } from "react";
 import * as dt from "../durationTools";
+import { useTranslation } from "react-i18next";
 
 /** */
 interface CalculableInputRow {
@@ -14,6 +15,7 @@ interface CalculableInputRow {
  * @returns 
  */
 const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputChange }) => {
+    const { t } = useTranslation();
     // const isDuration: boolean = calcWrapper.durationCalculable instanceof dt.Duration;
     // Duration Defaults
     let hours: number = 0, minutes: number = 0, seconds: number = 0, milliseconds: number = 0;
@@ -41,7 +43,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
     return (
         <tr>
             <td>{index + 1}</td>
-            <td>
+            <td title={t("tooltips.hoursField")}>
                 <input
                     id={`hours-${index}`}
                     type="number"
@@ -54,7 +56,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     onChange={onInputChange}
                 />
             </td>
-            <td>
+            <td title={t("tooltips.minutesField")}>
                 <input
                     id={`minutes-${index}`}
                     type="number"
@@ -67,7 +69,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     onChange={onInputChange}
                 />
             </td>
-            <td>
+            <td title={t("tooltips.secondsField")}>
                 <input
                     id={`seconds-${index}`}
                     type="number"
@@ -80,7 +82,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     onChange={onInputChange}
                 />
             </td>
-            <td>
+            <td title={t("tooltips.millisField")}>
                 <input
                     id={`milliseconds-${index}`}
                     type="number"
@@ -93,7 +95,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     onChange={onInputChange}
                 />
             </td>
-            <td>
+            <td title={t("tooltips.operandDropDown")}>
                 {
                     index === 0 ? null : (
                         <select id={`operand-${index}`} onChange={onInputChange}>
@@ -105,7 +107,7 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     )
                 }
             </td>
-            <td>
+            <td title={t("tooltips.scaleField")}>
                 <input
                     id={`value-${index}`}
                     type="number"

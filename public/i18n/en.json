@@ -24,6 +24,13 @@
         "divideByZero": "You cannot divide by zero!"
     },
     "tooltips": {
-        "compute": "Click this button to compute the total duration."
+        "compute": "Click this button to compute the total duration.",
+        "adjust": "Drag the slider handle to adjust the number of rows in the table, from {{minRowSize}} to {{maxRowSize}}.",
+        "hoursField": "Set the number of hours.",
+        "minutesField": "Set the number of minutes.",
+        "secondsField": "Set the number of seconds",
+        "millisField": "Set the number of milliseconds.",
+        "operandDropDown": "Select the mathematical operation you want to perform. Note: this is applied on the running total.",
+        "scaleField": "Set the value you wish to multiply or divide the running total by."
     }
 }

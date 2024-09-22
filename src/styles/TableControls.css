@@ -3,6 +3,13 @@
     text-align: center;
 }
 
+.slider-container {
+    border: 12px inset silver;
+    width: fit-content;
+    margin: 0 auto;
+    padding: 0 10px;
+}
+
 .slider-container span > * {
     display: inline-flex;
     justify-content: space-around;

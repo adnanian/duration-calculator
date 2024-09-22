@@ -15,7 +15,7 @@ const TableControls: React.FC<TableAdjuster> = ({ minRowSize, maxRowSize, curren
 
   return (
     <div id="table-controls">
-      <div className="slider-container">
+      <div className="slider-container" title={t("tooltips.adjust", {minRowSize: minRowSize, maxRowSize: maxRowSize})}>
         <h3>{t("rows", { rowCount: currentRowCount })}</h3>
         <span>
           <span className="slider-end">{minRowSize}</span>
