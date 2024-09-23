@@ -8,7 +8,11 @@ import Header from './components/Header';
 import Footer from './components/Footer';
 import TableControls from './components/TableControls';
 
-const App = () => {
+/**
+ * 
+ * @returns 
+ */
+const App: React.FC = () => {
   const MIN_ROW_SIZE: number = 2, MAX_ROW_SIZE: number = 100;
   const { i18n } = useTranslation();
   // Array of durations, scales, and the operands.

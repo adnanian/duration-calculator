@@ -2,7 +2,13 @@ import React, { ChangeEventHandler } from "react";
 import * as dt from "../durationTools";
 import { useTranslation } from "react-i18next";
 
-/** */
+/**
+ * Interface representing the props for the InputRow component.
+ * @interface CalculableInputRow
+ * @property {Number} index - the row index.
+ * @property {dt.CalcWrapper} calcWrapper - the calculation wrapper, consisting of a duration/scale and an operand.
+ * @property {ChangeEventHandler<HTMLInputElement | HTMLSelectElement>} onInputChange - callback for input change.
+ */
 interface CalculableInputRow {
     index: number
     calcWrapper: dt.CalcWrapper,
@@ -10,9 +16,11 @@ interface CalculableInputRow {
 }
 
 /**
+ * Renders a single row for the input table, consisting of a duration or scale, which
+ * the user can adjust according to their needs.
  * 
- * @param param0 
- * @returns 
+ * @param props - the props for the InputRow component.
+ * @returns the rendered InputRow component.
  */
 const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputChange }) => {
     const { t } = useTranslation();

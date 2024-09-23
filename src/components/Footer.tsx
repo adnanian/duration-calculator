@@ -3,9 +3,9 @@ import { useTranslation } from "react-i18next";
 import "../styles/Footer.css";
 
 /**
- * TODO
+ * Footer of the application.
  * 
- * @returns 
+ * @returns the footer (i.e. a link to Adnan Wazwaz's personal website.)
  */
 const Footer: React.FC = () => {
     const {t} = useTranslation();

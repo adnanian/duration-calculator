@@ -4,22 +4,26 @@ import { useTranslation } from "react-i18next";
 import "../styles/Header.css";
 
 /**
- * TODO
+ * Interface representing the props for the Header component.
+ * @interface TopPageManagement
+ * @property {Language} targetLanguage - the target language.
+ * @property {ChangeEventHandler<HTMLSelectElement>} onLanguageSelection - Callback for language selection.
  */
 interface TopPageManagement {
-    targetLanguage: Language,
-    onLanguageSelection: ChangeEventHandler<HTMLSelectElement>
+    targetLanguage: Language;
+    onLanguageSelection: ChangeEventHandler<HTMLSelectElement>;
 }
 
 /**
- * TODO
+ * Header component that renders the application title and manages language selection.
  * 
- * @param param0 
- * @returns 
+ * @param props - the props for the Header component. 
+ * @returns the rendered Header component.
  */
 const Header: React.FC<TopPageManagement> = ({ targetLanguage, onLanguageSelection }) => {
     const { t } = useTranslation();
-    // List of all available languages for this application. See /src/public/i18n
+
+    // List of all available languages for this application.
     const languageOptions = Object.values(LanguageMap).map((language) => {
         return (
             <option key={language.code} value={language.code}>
