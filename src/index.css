@@ -23,7 +23,7 @@ div#root {
     align-items: center;
   }
 
-  .input-output > * {
+  .input-output>* {
     margin: 15px 20px 16px !important;
   }
 }

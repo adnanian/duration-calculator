@@ -1,0 +1,38 @@
+{
+    "title": "የጊዜ ማሻሻያ",
+    "subtitle": "እንኳንም ያንን ጊዜ ትምህርት ማስረጃ በግልጽ ለማሳየት እተዋበልሃለሁ።",
+    "label": "ቋንቋ ይምረጡ: ",
+    "loading": "በመጫን ላይ...",
+    "hours": "ሰዓታት",
+    "minutes": "ደቂቃዎች",
+    "seconds": "ሰከንዶች",
+    "milliseconds": "ሚሊሰከንዶች",
+    "operand": "ኦፔራንድ",
+    "scale": "መጠን",
+    "compute": "አስላ!",
+    "result": "ውጤት",
+    "durationResult": "{{hours}} ሰዓት, {{minutes}} ደቂቃ, {{seconds}} ሰከንድ, {{milliseconds}} ሚሊሰከንድ",
+    "toHours": "{{hours}} ሰዓት",
+    "toMinutes": "{{minutes}} ደቂቃ",
+    "toSeconds": "{{seconds}} ሰከንድ",
+    "toMillis": "{{milliseconds}} ሚሊሰከንድ",
+    "rows": "ተከታታይ ቅርጾች: {{rowCount}}",
+    "rowNumLabel": "ተከታታይ ቅርጽ #",
+    "addRows": "ተከታታይ ቅርጾችን አክል",
+    "rowTooltip": "ማስታወሻ: ለዚህ ገበታ ከፍተኛ ቅርጾች ብዛት {{maxRowCount}} ነው።",
+    "contact": "አንዳች ጥያቄ ካለዎት እባክዎን ለተዘጋጅተው ጋር ይገናኙ",
+    "errors": {
+        "divideByZero": "በዜሮ መከፋፈል አንችልም!"
+    },
+    "tooltips": {
+        "compute": "ጠቅ በማድረግ ሙሉ ጊዜ ያስላ።",
+        "adjust": "በሰንደቅ መዘመኛ ቁልፍ እንደገና ከ {{minRowSize}} እስከ {{maxRowSize}} ቅርጾችን በተከታታይ ያዛርዱ።",
+        "hoursField": "የሰዓት ብዛት ያዝሩ።",
+        "minutesField": "የደቂቃ ብዛት ያዝሩ።",
+        "secondsField": "የሰከንድ ብዛት ያዝሩ።",
+        "millisField": "የሚሊሰከንድ ብዛት ያዝሩ።",
+        "operandDropDown": "ለመፈጸም የተመረጠውን ሒሳብ እንደገና ያምሩ። ማስታወሻ: ይህ በተከታታይ ጠቅላላ ላይ የሚደርስ ነው።",
+        "scaleField": "ጠቅላላን ለመከፋፈል የሚፈልጉትን ዋጋ አቅርቡ።",
+        "contact": "ማንኛውንም ጥያቄ ለማቅረብ እባኮትን ለመተጋጋሚው ይገናኙ።"
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "title": "Süre Hesaplayıcı",
+    "subtitle": "Sürelerinizi zamandan bağımsız olarak hesaplayan basit bir araç.",
+    "label": "Bir dil seçin: ",
+    "loading": "Yükleniyor...",
+    "hours": "Saatler",
+    "minutes": "Dakikalar",
+    "seconds": "Saniyeler",
+    "milliseconds": "Milisaniyeler",
+    "operand": "İşlem",
+    "scale": "Ölçek",
+    "compute": "Hesapla!",
+    "result": "Sonuç",
+    "durationResult": "{{hours}} saat, {{minutes}} dk, {{seconds}} sn, {{milliseconds}} milisn",
+    "toHours": "{{hours}} saat",
+    "toMinutes": "{{minutes}} dk",
+    "toSeconds": "{{seconds}} sn",
+    "toMillis": "{{milliseconds}} milisn",
+    "rows": "Satırlar: {{rowCount}}",
+    "rowNumLabel": "Satır #",
+    "addRows": "Satır Ekle",
+    "rowTooltip": "Not: Bu tablo için maksimum satır sayısı {{maxRowCount}}'tır.",
+    "contact": "Geliştiriciyle İletişime Geç",
+    "errors": {
+        "divideByZero": "Sıfıra bölünemez!"
+    },
+    "tooltips": {
+        "compute": "Toplam süreyi hesaplamak için bu düğmeye tıklayın.",
+        "adjust": "Tablodaki satır sayısını ayarlamak için sürgüyü {{minRowSize}} ile {{maxRowSize}} arasında sürükleyin.",
+        "hoursField": "Saat sayısını ayarlayın.",
+        "minutesField": "Dakika sayısını ayarlayın.",
+        "secondsField": "Saniye sayısını ayarlayın.",
+        "millisField": "Milisaniye sayısını ayarlayın.",
+        "operandDropDown": "Gerçekleştirmek istediğiniz matematiksel işlemi seçin. Not: Bu, çalışan toplam üzerinde uygulanır.",
+        "scaleField": "Çalışan toplamı çarpmak veya bölmek istediğiniz değeri ayarlayın.",
+        "contact": "Soru sormak için geliştirici Adnan Wazwaz ile iletişime geçin."
+    }
+}

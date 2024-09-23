@@ -26,7 +26,8 @@ thead tr {
     background-color: silver;
 }
 
-thead th, tbody td {
+thead th,
+tbody td {
     padding: 2px 5px;
 }
 

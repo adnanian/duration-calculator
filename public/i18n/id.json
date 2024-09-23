@@ -1,0 +1,38 @@
+{
+    "title": "Kalkulator Durasi",
+    "subtitle": "Alat sederhana untuk menghitung durasi Anda tanpa memperhitungkan waktu.",
+    "label": "Pilih bahasa: ",
+    "loading": "Memuat...",
+    "hours": "Jam",
+    "minutes": "Menit",
+    "seconds": "Detik",
+    "milliseconds": "Milidetik",
+    "operand": "Operasi",
+    "scale": "Skala",
+    "compute": "Hitung!",
+    "result": "Hasil",
+    "durationResult": "{{hours}} jam, {{minutes}} mnt, {{seconds}} dtk, {{milliseconds}} mdt",
+    "toHours": "{{hours}} jam",
+    "toMinutes": "{{minutes}} mnt",
+    "toSeconds": "{{seconds}} dtk",
+    "toMillis": "{{milliseconds}} mdt",
+    "rows": "Baris: {{rowCount}}",
+    "rowNumLabel": "Baris #",
+    "addRows": "Tambah Baris",
+    "rowTooltip": "Catatan: jumlah baris maksimum untuk tabel ini adalah {{maxRowCount}}.",
+    "contact": "Hubungi Pengembang",
+    "errors": {
+        "divideByZero": "Anda tidak bisa membagi dengan nol!"
+    },
+    "tooltips": {
+        "compute": "Klik tombol ini untuk menghitung total durasi.",
+        "adjust": "Seret penggeser untuk menyesuaikan jumlah baris dalam tabel, dari {{minRowSize}} hingga {{maxRowSize}}.",
+        "hoursField": "Atur jumlah jam.",
+        "minutesField": "Atur jumlah menit.",
+        "secondsField": "Atur jumlah detik.",
+        "millisField": "Atur jumlah milidetik.",
+        "operandDropDown": "Pilih operasi matematika yang ingin Anda lakukan. Catatan: ini diterapkan pada jumlah yang sedang berjalan.",
+        "scaleField": "Atur nilai yang ingin Anda kalikan atau bagikan dari jumlah yang sedang berjalan.",
+        "contact": "Hubungi pengembang, Adnan Wazwaz, untuk pertanyaan."
+    }
+}

@@ -1,0 +1,38 @@
+{
+    "title": "Kalkulator Tempoh",
+    "subtitle": "Alat ringkas untuk mengira tempoh anda tanpa mengira masa.",
+    "label": "Pilih bahasa: ",
+    "loading": "Memuatkan...",
+    "hours": "Jam",
+    "minutes": "Minit",
+    "seconds": "Saat",
+    "milliseconds": "Milisaat",
+    "operand": "Operasi",
+    "scale": "Skala",
+    "compute": "Kira!",
+    "result": "Keputusan",
+    "durationResult": "{{hours}} jam, {{minutes}} min, {{seconds}} saat, {{milliseconds}} milisaat",
+    "toHours": "{{hours}} jam",
+    "toMinutes": "{{minutes}} min",
+    "toSeconds": "{{seconds}} saat",
+    "toMillis": "{{milliseconds}} milisaat",
+    "rows": "Baris: {{rowCount}}",
+    "rowNumLabel": "Baris #",
+    "addRows": "Tambah Baris",
+    "rowTooltip": "Nota: bilangan baris maksimum untuk jadual ini ialah {{maxRowCount}}.",
+    "contact": "Hubungi Pembangun",
+    "errors": {
+        "divideByZero": "Anda tidak boleh membahagikan dengan sifar!"
+    },
+    "tooltips": {
+        "compute": "Klik butang ini untuk mengira jumlah tempoh.",
+        "adjust": "Seret pemegang peluncur untuk melaraskan bilangan baris dalam jadual, dari {{minRowSize}} hingga {{maxRowSize}}.",
+        "hoursField": "Tetapkan bilangan jam.",
+        "minutesField": "Tetapkan bilangan minit.",
+        "secondsField": "Tetapkan bilangan saat.",
+        "millisField": "Tetapkan bilangan milisaat.",
+        "operandDropDown": "Pilih operasi matematik yang anda ingin lakukan. Nota: ini digunakan pada jumlah semasa.",
+        "scaleField": "Tetapkan nilai yang anda mahu darabkan atau bahagikan jumlah semasa.",
+        "contact": "Hubungi pembangun, Adnan Wazwaz, untuk pertanyaan."
+    }
+}

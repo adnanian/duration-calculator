@@ -5,12 +5,11 @@ import "../styles/Header.css";
 
 /**
  * Interface representing the props for the Header component.
- * @interface TopPageManagement
- * @property {Language} targetLanguage - the target language.
- * @property {ChangeEventHandler<HTMLSelectElement>} onLanguageSelection - Callback for language selection.
  */
 interface TopPageManagement {
+    /** The lanuage to display the contents of the application in. */
     targetLanguage: Language;
+    /** The callback function to execute when a language is selection. */
     onLanguageSelection: ChangeEventHandler<HTMLSelectElement>;
 }
 

@@ -1,0 +1,38 @@
+{
+    "title": "时长计算器",
+    "subtitle": "一个简单的工具，用于计算您的时长，不受时间限制。",
+    "label": "选择语言：",
+    "loading": "加载中...",
+    "hours": "小时",
+    "minutes": "分钟",
+    "seconds": "秒",
+    "milliseconds": "毫秒",
+    "operand": "操作数",
+    "scale": "比例",
+    "compute": "计算！",
+    "result": "结果",
+    "durationResult": "{{hours}} 小时, {{minutes}} 分钟, {{seconds}} 秒, {{milliseconds}} 毫秒",
+    "toHours": "{{hours}} 小时",
+    "toMinutes": "{{minutes}} 分钟",
+    "toSeconds": "{{seconds}} 秒",
+    "toMillis": "{{milliseconds}} 毫秒",
+    "rows": "行数：{{rowCount}}",
+    "rowNumLabel": "行 #",
+    "addRows": "添加行",
+    "rowTooltip": "注意：该表格的最大行数为 {{maxRowCount}}。",
+    "contact": "联系开发者",
+    "errors": {
+        "divideByZero": "不能除以零！"
+    },
+    "tooltips": {
+        "compute": "点击此按钮计算总时长。",
+        "adjust": "拖动滑块以调整表中的行数，从 {{minRowSize}} 到 {{maxRowSize}}。",
+        "hoursField": "设置小时数。",
+        "minutesField": "设置分钟数。",
+        "secondsField": "设置秒数。",
+        "millisField": "设置毫秒数。",
+        "operandDropDown": "选择要执行的数学运算。 注意：这适用于当前总数。",
+        "scaleField": "设置要将当前总数乘以或除以的值。",
+        "contact": "如有疑问，请联系开发者Adnan Wazwaz。"
+    }
+}

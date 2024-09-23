@@ -1,0 +1,38 @@
+{
+    "title": "Xisaabiyaha Mudada",
+    "subtitle": "Qalab fudud oo aad ku xisaabin karto mudadaada iyadoon waqtigu saamayn.",
+    "label": "Xullo luqad: ",
+    "loading": "Soo raraya...",
+    "hours": "Saacado",
+    "minutes": "Daqiiqado",
+    "seconds": "Ilbiriqsi",
+    "milliseconds": "Millisekin",
+    "operand": "Waxa la qabanayo",
+    "scale": "Cabbirka",
+    "compute": "Xisaabi!",
+    "result": "Natiijada",
+    "durationResult": "{{hours}} saac, {{minutes}} daq, {{seconds}} ilb, {{milliseconds}} msek",
+    "toHours": "{{hours}} saac",
+    "toMinutes": "{{minutes}} daq",
+    "toSeconds": "{{seconds}} ilb",
+    "toMillis": "{{milliseconds}} msek",
+    "rows": "Safafka: {{rowCount}}",
+    "rowNumLabel": "Safka #",
+    "addRows": "Ku dar saf",
+    "rowTooltip": "Fiiro gaar ah: tirada ugu badan ee safka miiska waa {{maxRowCount}}.",
+    "contact": "La xiriir horumariye",
+    "errors": {
+        "divideByZero": "Lagama yaabo inaad qaybiso eber!"
+    },
+    "tooltips": {
+        "compute": "Riix batoonkan si aad ugu xisaabiso mudada guud.",
+        "adjust": "Jiid siliderka si aad ugu hagaajiso tirada safafka miiska laga bilaabo {{minRowSize}} ilaa {{maxRowSize}}.",
+        "hoursField": "Deji tirada saacadaha.",
+        "minutesField": "Deji tirada daqiiqadaha.",
+        "secondsField": "Deji tirada ilbiriqsiyaasha.",
+        "millisField": "Deji tirada millisekinnada.",
+        "operandDropDown": "Xullo hawsha xisaabeed ee aad rabto inaad fuliso. Fiiro gaar ah: waxa tan lagu dabaqayaa tirada socota.",
+        "scaleField": "Deji qiimaha aad rabto inaad ku kala qaybiso ama ku kala jarto tirada socota.",
+        "contact": "La xiriir horumariye, Adnan Wazwaz, su’aalo awgood."
+    }
+}

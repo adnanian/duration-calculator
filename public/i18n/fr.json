@@ -1,0 +1,38 @@
+{
+    "title": "Calculateur de Durée",
+    "subtitle": "Un outil simple pour calculer vos durées indépendamment du temps.",
+    "label": "Sélectionnez une langue: ",
+    "loading": "Chargement...",
+    "hours": "Heures",
+    "minutes": "Minutes",
+    "seconds": "Secondes",
+    "milliseconds": "Millisecondes",
+    "operand": "Opérande",
+    "scale": "Échelle",
+    "compute": "Calculer!",
+    "result": "Résultat",
+    "durationResult": "{{hours}} h, {{minutes}} min, {{seconds}} sec, {{milliseconds}} ms",
+    "toHours": "{{hours}} h",
+    "toMinutes": "{{minutes}} min",
+    "toSeconds": "{{seconds}} sec",
+    "toMillis": "{{milliseconds}} ms",
+    "rows": "Lignes: {{rowCount}}",
+    "rowNumLabel": "Ligne #",
+    "addRows": "Ajouter des lignes",
+    "rowTooltip": "Remarque : le nombre maximal de lignes pour ce tableau est de {{maxRowCount}}.",
+    "contact": "Contacter le Développeur",
+    "errors": {
+        "divideByZero": "Vous ne pouvez pas diviser par zéro!"
+    },
+    "tooltips": {
+        "compute": "Cliquez sur ce bouton pour calculer la durée totale.",
+        "adjust": "Faites glisser la poignée pour ajuster le nombre de lignes dans le tableau, de {{minRowSize}} à {{maxRowSize}}.",
+        "hoursField": "Définissez le nombre d'heures.",
+        "minutesField": "Définissez le nombre de minutes.",
+        "secondsField": "Définissez le nombre de secondes.",
+        "millisField": "Définissez le nombre de millisecondes.",
+        "operandDropDown": "Sélectionnez l'opération mathématique que vous souhaitez effectuer. Remarque: cela s'applique au total en cours.",
+        "scaleField": "Définissez la valeur par laquelle vous souhaitez multiplier ou diviser le total en cours.",
+        "contact": "Contactez le développeur, Adnan Wazwaz, pour toute question."
+    }
+}

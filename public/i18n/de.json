@@ -1,0 +1,38 @@
+{
+    "title": "Dauerrechner",
+    "subtitle": "Ein einfaches Werkzeug, um Ihre Dauer unabhängig von der Zeit zu berechnen.",
+    "label": "Wähle eine Sprache: ",
+    "loading": "Laden...",
+    "hours": "Stunden",
+    "minutes": "Minuten",
+    "seconds": "Sekunden",
+    "milliseconds": "Millisekunden",
+    "operand": "Operand",
+    "scale": "Skala",
+    "compute": "Berechnen!",
+    "result": "Ergebnis",
+    "durationResult": "{{hours}} Std, {{minutes}} Min, {{seconds}} Sek, {{milliseconds}} ms",
+    "toHours": "{{hours}} Std",
+    "toMinutes": "{{minutes}} Min",
+    "toSeconds": "{{seconds}} Sek",
+    "toMillis": "{{milliseconds}} ms",
+    "rows": "Zeilen: {{rowCount}}",
+    "rowNumLabel": "Zeile #",
+    "addRows": "Zeilen hinzufügen",
+    "rowTooltip": "Hinweis: Die maximale Anzahl an Zeilen für diese Tabelle beträgt {{maxRowCount}}.",
+    "contact": "Entwickler kontaktieren",
+    "errors": {
+        "divideByZero": "Man kann nicht durch null teilen!"
+    },
+    "tooltips": {
+        "compute": "Klicken Sie auf diese Schaltfläche, um die Gesamtdauer zu berechnen.",
+        "adjust": "Ziehen Sie den Schieberegler, um die Anzahl der Zeilen in der Tabelle von {{minRowSize}} bis {{maxRowSize}} anzupassen.",
+        "hoursField": "Stellen Sie die Anzahl der Stunden ein.",
+        "minutesField": "Stellen Sie die Anzahl der Minuten ein.",
+        "secondsField": "Stellen Sie die Anzahl der Sekunden ein.",
+        "millisField": "Stellen Sie die Anzahl der Millisekunden ein.",
+        "operandDropDown": "Wählen Sie die mathematische Operation, die Sie ausführen möchten. Hinweis: Dies wird auf die laufende Summe angewendet.",
+        "scaleField": "Stellen Sie den Wert ein, mit dem Sie die laufende Summe multiplizieren oder teilen möchten.",
+        "contact": "Kontaktieren Sie den Entwickler, Adnan Wazwaz, für Anfragen."
+    }
+}

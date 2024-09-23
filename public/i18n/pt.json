@@ -1,0 +1,38 @@
+{
+    "title": "Calculadora de Duração",
+    "subtitle": "Uma ferramenta simples para calcular suas durações, independentemente do tempo.",
+    "label": "Selecione um idioma: ",
+    "loading": "Carregando...",
+    "hours": "Horas",
+    "minutes": "Minutos",
+    "seconds": "Segundos",
+    "milliseconds": "Milissegundos",
+    "operand": "Operador",
+    "scale": "Escala",
+    "compute": "Calcular!",
+    "result": "Resultado",
+    "durationResult": "{{hours}} hrs, {{minutes}} min, {{seconds}} seg, {{milliseconds}} ms",
+    "toHours": "{{hours}} hrs",
+    "toMinutes": "{{minutes}} min",
+    "toSeconds": "{{seconds}} seg",
+    "toMillis": "{{milliseconds}} ms",
+    "rows": "Linhas: {{rowCount}}",
+    "rowNumLabel": "Linha #",
+    "addRows": "Adicionar Linhas",
+    "rowTooltip": "Nota: o número máximo de linhas para esta tabela é {{maxRowCount}}.",
+    "contact": "Entre em contato com o Desenvolvedor",
+    "errors": {
+        "divideByZero": "Não é possível dividir por zero!"
+    },
+    "tooltips": {
+        "compute": "Clique neste botão para calcular a duração total.",
+        "adjust": "Arraste o controle deslizante para ajustar o número de linhas na tabela, de {{minRowSize}} a {{maxRowSize}}.",
+        "hoursField": "Defina o número de horas.",
+        "minutesField": "Defina o número de minutos.",
+        "secondsField": "Defina o número de segundos.",
+        "millisField": "Defina o número de milissegundos.",
+        "operandDropDown": "Selecione a operação matemática que deseja realizar. Nota: isso é aplicado ao total acumulado.",
+        "scaleField": "Defina o valor que deseja multiplicar ou dividir pelo total acumulado.",
+        "contact": "Entre em contato com o desenvolvedor, Adnan Wazwaz, para perguntas."
+    }
+}

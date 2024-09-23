@@ -1,0 +1,38 @@
+{
+    "title": "Kalkileetii Yeroo",
+    "subtitle": "Meeshaa salphaa yeroo kee sirriitti himuudhaaf.",
+    "label": "Afaan filadhu: ",
+    "loading": "Haa cimdi...",
+    "hours": "Sa'aatii",
+    "minutes": "Daqiiqaa",
+    "seconds": "Sekondii",
+    "milliseconds": "Millisekondii",
+    "operand": "Oopeeraandii",
+    "scale": "Skeelaa",
+    "compute": "Lakkoofsa!",
+    "result": "Bu'aa",
+    "durationResult": "{{hours}} sa'aatii, {{minutes}} daqiiqaa, {{seconds}} sekondii, {{milliseconds}} millisekondii",
+    "toHours": "{{hours}} sa'aatii",
+    "toMinutes": "{{minutes}} daqiiqaa",
+    "toSeconds": "{{seconds}} sekondii",
+    "toMillis": "{{milliseconds}} millisekondii",
+    "rows": "Kuusaa: {{rowCount}}",
+    "rowNumLabel": "Kuusaa #",
+    "addRows": "Kuusaa itti dabali",
+    "rowTooltip": "Yaadachiisaa: lakkoofsa kuusaa guddaan sarartuu kanaaf {{maxRowCount}} dha.",
+    "contact": "Deveeloopparii qunnami",
+    "errors": {
+        "divideByZero": "Addaan qoqqooduu hin dandeessu sifura irraa!"
+    },
+    "tooltips": {
+        "compute": "Bu'aa yeroo waliigalaa lakkoofsuuf kana cuqaasi.",
+        "adjust": "Sarartuu keessatti lakkoofsa kuusaa fooyyessuudhaaf meeshaa harkisaa harkisi, hanga {{minRowSize}} irraa gara {{maxRowSize}}.",
+        "hoursField": "Lakkoofsa sa'aatii qindeessi.",
+        "minutesField": "Lakkoofsa daqiiqaa qindeessi.",
+        "secondsField": "Lakkoofsa sekondii qindeessi.",
+        "millisField": "Lakkoofsa millisekondii qindeessi.",
+        "operandDropDown": "Oopeeraandii ammayyaa'aa filadhu. Yaadachiisaa: kun waliigala yeroo irratti raawwata.",
+        "scaleField": "Bu'aa waliigalaa gara olii ykn gaditti qaaxxessuudhaaf lakkoofsa fayyadamuu barbaaddu filadhu.",
+        "contact": "Gaaffii qabaachuuf Adnaan Waazwaaz qunnami."
+    }
+}

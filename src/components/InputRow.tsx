@@ -10,8 +10,11 @@ import { useTranslation } from "react-i18next";
  * @property {ChangeEventHandler<HTMLInputElement | HTMLSelectElement>} onInputChange - callback for input change.
  */
 interface CalculableInputRow {
+    /** The row index. */
     index: number
+    /** */
     calcWrapper: dt.CalcWrapper,
+    /** */
     onInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
 }
 

@@ -10,7 +10,7 @@
     padding: 0 10px;
 }
 
-.slider-container span > * {
+.slider-container span>* {
     display: inline-flex;
     justify-content: space-around;
 }
