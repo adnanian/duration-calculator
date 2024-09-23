@@ -20,6 +20,7 @@
     "rowNumLabel": "Row #",
     "addRows": "Add Rows",
     "rowTooltip": "Note: the maximum number of rows for this table is {{maxRowCount}}.",
+    "contact": "Contact the Developer",
     "errors": {
         "divideByZero": "You cannot divide by zero!"
     },
@@ -31,6 +32,7 @@
         "secondsField": "Set the number of seconds",
         "millisField": "Set the number of milliseconds.",
         "operandDropDown": "Select the mathematical operation you want to perform. Note: this is applied on the running total.",
-        "scaleField": "Set the value you wish to multiply or divide the running total by."
+        "scaleField": "Set the value you wish to multiply or divide the running total by.",
+        "contact": "Contact the developer, Adnan Wazwaz, for inquiries."
     }
 }

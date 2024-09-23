@@ -1,4 +1,6 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
+import "../styles/Footer.css";
 
 /**
  * TODO
@@ -6,7 +8,20 @@ import React from "react";
  * @returns 
  */
 const Footer: React.FC = () => {
-    return <footer></footer>;
+    const {t} = useTranslation();
+
+    return (
+        <footer>
+            <a
+                href="https://adnanianorder.com/"
+                target="_blank"
+                rel="noreferrer"
+                title={t("tooltips.contact")}
+            >
+                {t("contact")}
+            </a>
+        </footer>
+    )
 }
 
 export default Footer;
