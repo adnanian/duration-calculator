@@ -149,22 +149,62 @@ const SPANISH: Language = {
     code: "es"
 };
 
+/** Representation of Bengali. */
+const BENGALI: Language = {
+    englishName: "Bengali",
+    nativeName: "বাংলা",
+    code: "bn"
+};
+
+/** Representation of Dutch. */
+const DUTCH: Language = {
+    englishName: "Dutch",
+    nativeName: "Nederlands",
+    code: "nl"
+};
+
+/** Representation of Italian. */
+const ITALIAN: Language = {
+    englishName: "Italian",
+    nativeName: "Italiano",
+    code: "it"
+};
+
+/** Representation of Korean. */
+const KOREAN: Language = {
+    englishName: "Korean",
+    nativeName: "한국어",
+    code: "ko"
+};
+
+/** Representation of Vietnamese. */
+const VIETNAMESE: Language = {
+    englishName: "Vietnamese",
+    nativeName: "Tiếng Việt",
+    code: "vi"
+};
+
 export const LanguageMap: Record<string, Language> = {
     "en": ENGLISH,
     "ar": ARABIC,
     "am": AMHARIC,
+    "bn": BENGALI,
     "de": GERMAN,
     "es": SPANISH,
     "fr": FRENCH,
     "hi": HINDI,
     "id": INDONESIAN,
+    "it": ITALIAN,
     "ja": JAPANESE,
+    "ko": KOREAN,
     "ms": MALAY,
+    "nl": DUTCH,
     "om": OROMO,
     "pt": PORTUGUESE,
     "ru": RUSSIAN,
     "so": SOMALI,
     "tr": TURKISH,
     "ur": URDU,
-    "zh": MANDARIN
+    "vi": VIETNAMESE,
+    "zh": MANDARIN,
 };

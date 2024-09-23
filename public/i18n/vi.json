@@ -1,0 +1,38 @@
+{
+    "title": "Máy tính Thời lượng",
+    "subtitle": "Công cụ đơn giản để tính thời lượng của bạn bất kể thời gian.",
+    "label": "Chọn ngôn ngữ: ",
+    "loading": "Đang tải...",
+    "hours": "Giờ",
+    "minutes": "Phút",
+    "seconds": "Giây",
+    "milliseconds": "Mili giây",
+    "operand": "Toán tử",
+    "scale": "Thang đo",
+    "compute": "Tính toán!",
+    "result": "Kết quả",
+    "durationResult": "{{hours}} giờ, {{minutes}} phút, {{seconds}} giây, {{milliseconds}} mili giây",
+    "toHours": "{{hours}} giờ",
+    "toMinutes": "{{minutes}} phút",
+    "toSeconds": "{{seconds}} giây",
+    "toMillis": "{{milliseconds}} mili giây",
+    "rows": "Hàng: {{rowCount}}",
+    "rowNumLabel": "Hàng #",
+    "addRows": "Thêm Hàng",
+    "rowTooltip": "Lưu ý: số hàng tối đa cho bảng này là {{maxRowCount}}.",
+    "contact": "Liên hệ với Nhà phát triển",
+    "errors": {
+        "divideByZero": "Bạn không thể chia cho không!"
+    },
+    "tooltips": {
+        "compute": "Nhấp vào nút này để tính tổng thời gian.",
+        "adjust": "Kéo thanh trượt để điều chỉnh số hàng trong bảng, từ {{minRowSize}} đến {{maxRowSize}}.",
+        "hoursField": "Đặt số giờ.",
+        "minutesField": "Đặt số phút.",
+        "secondsField": "Đặt số giây.",
+        "millisField": "Đặt số mili giây.",
+        "operandDropDown": "Chọn phép toán bạn muốn thực hiện.",
+        "scaleField": "Đặt giá trị bạn muốn nhân hoặc chia với tổng thời gian.",
+        "contact": "Liên hệ với nhà phát triển, Adnan Wazwaz, nếu bạn có bất kỳ câu hỏi nào."
+    }
+}

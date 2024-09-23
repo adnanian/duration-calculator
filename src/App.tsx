@@ -9,8 +9,9 @@ import Footer from './components/Footer';
 import TableControls from './components/TableControls';
 
 /**
+ * Parent component of all the other components.
  * 
- * @returns 
+ * @returns App.
  */
 const App: React.FC = () => {
   const MIN_ROW_SIZE: number = 2, MAX_ROW_SIZE: number = 100;
@@ -25,7 +26,6 @@ const App: React.FC = () => {
   });
   // Computed duration.
   const [durationResult, setDurationResult] = useState<dt.Duration>(new dt.Duration(0, 0, 0, 0));
- 
 
   // Initial language
   const [language, setLanguage] = useState<Language>(LanguageMap.ENGLISH);
@@ -33,8 +33,9 @@ const App: React.FC = () => {
   // Event Listeners
 
   /**
+   * Updates a CalcWrapper state value.
    * 
-   * @param e 
+   * @param e the event.
    */
   function handleCalculableChange(e: ChangeEvent<HTMLInputElement | HTMLSelectElement>): void {
     type DurationField = 'hours' | 'minutes' | 'seconds' | 'milliseconds';
@@ -70,7 +71,8 @@ const App: React.FC = () => {
   }
 
   /**
-   * TODO 
+   * Calculates the total duration from the array of durations, scales and their corresponding
+   * operands. 
    */
   function compute(): void {
     try {
@@ -107,9 +109,9 @@ const App: React.FC = () => {
   };
 
   /**
-   * TODO
+   * Adjusts the number of rows in the input table.
    * 
-   * @param e 
+   * @param e the event.
    */
   function handleRowAdjustment(e: ChangeEvent<HTMLInputElement>): void {
     const newRowCount: number = Number.parseInt(e.target.value);

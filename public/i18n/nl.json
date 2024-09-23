@@ -1,0 +1,38 @@
+{
+    "title": "Duur Calculator",
+    "subtitle": "Een eenvoudige tool om je tijdsduur te berekenen ongeacht de tijd.",
+    "label": "Selecteer een taal: ",
+    "loading": "Bezig met laden...",
+    "hours": "Uren",
+    "minutes": "Minuten",
+    "seconds": "Seconden",
+    "milliseconds": "Milliseconden",
+    "operand": "Operand",
+    "scale": "Schaal",
+    "compute": "Bereken!",
+    "result": "Resultaat",
+    "durationResult": "{{hours}} uur, {{minutes}} min, {{seconds}} sec, {{milliseconds}} milliseconden",
+    "toHours": "{{hours}} uur",
+    "toMinutes": "{{minutes}} min",
+    "toSeconds": "{{seconds}} sec",
+    "toMillis": "{{milliseconds}} milliseconden",
+    "rows": "Rijen: {{rowCount}}",
+    "rowNumLabel": "Rij #",
+    "addRows": "Rijen toevoegen",
+    "rowTooltip": "Opmerking: het maximale aantal rijen voor deze tabel is {{maxRowCount}}.",
+    "contact": "Neem contact op met de ontwikkelaar",
+    "errors": {
+        "divideByZero": "Je kunt niet delen door nul!"
+    },
+    "tooltips": {
+        "compute": "Klik op deze knop om de totale duur te berekenen.",
+        "adjust": "Versleep de schuifregelaar om het aantal rijen in de tabel aan te passen, van {{minRowSize}} tot {{maxRowSize}}.",
+        "hoursField": "Stel het aantal uren in.",
+        "minutesField": "Stel het aantal minuten in.",
+        "secondsField": "Stel het aantal seconden in.",
+        "millisField": "Stel het aantal milliseconden in.",
+        "operandDropDown": "Selecteer de wiskundige bewerking die u wilt uitvoeren.",
+        "scaleField": "Stel de waarde in waarmee u het resultaat wilt vermenigvuldigen of delen.",
+        "contact": "Neem contact op met de ontwikkelaar, Adnan Wazwaz, voor vragen."
+    }
+}

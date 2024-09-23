@@ -1,0 +1,38 @@
+{
+    "title": "Calcolatore di Durata",
+    "subtitle": "Uno strumento semplice per calcolare le tue durate indipendentemente dal tempo.",
+    "label": "Seleziona una lingua: ",
+    "loading": "Caricamento...",
+    "hours": "Ore",
+    "minutes": "Minuti",
+    "seconds": "Secondi",
+    "milliseconds": "Millisecondi",
+    "operand": "Operando",
+    "scale": "Scala",
+    "compute": "Calcola!",
+    "result": "Risultato",
+    "durationResult": "{{hours}} ore, {{minutes}} min, {{seconds}} sec, {{milliseconds}} millisecondi",
+    "toHours": "{{hours}} ore",
+    "toMinutes": "{{minutes}} min",
+    "toSeconds": "{{seconds}} sec",
+    "toMillis": "{{milliseconds}} millisecondi",
+    "rows": "Righe: {{rowCount}}",
+    "rowNumLabel": "Riga #",
+    "addRows": "Aggiungi Righe",
+    "rowTooltip": "Nota: il numero massimo di righe per questa tabella è {{maxRowCount}}.",
+    "contact": "Contatta lo sviluppatore",
+    "errors": {
+        "divideByZero": "Non puoi dividere per zero!"
+    },
+    "tooltips": {
+        "compute": "Clicca su questo pulsante per calcolare la durata totale.",
+        "adjust": "Trascina la maniglia del cursore per regolare il numero di righe nella tabella, da {{minRowSize}} a {{maxRowSize}}.",
+        "hoursField": "Imposta il numero di ore.",
+        "minutesField": "Imposta il numero di minuti.",
+        "secondsField": "Imposta il numero di secondi.",
+        "millisField": "Imposta il numero di millisecondi.",
+        "operandDropDown": "Seleziona l'operazione matematica che desideri eseguire.",
+        "scaleField": "Imposta il valore che desideri moltiplicare o dividere dal risultato finale.",
+        "contact": "Contatta lo sviluppatore, Adnan Wazwaz, per qualsiasi domanda."
+    }
+}

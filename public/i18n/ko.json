@@ -1,0 +1,38 @@
+{
+    "title": "기간 계산기",
+    "subtitle": "시간에 관계없이 기간을 계산하는 간단한 도구입니다.",
+    "label": "언어 선택: ",
+    "loading": "로드 중...",
+    "hours": "시간",
+    "minutes": "분",
+    "seconds": "초",
+    "milliseconds": "밀리초",
+    "operand": "연산자",
+    "scale": "규모",
+    "compute": "계산하기!",
+    "result": "결과",
+    "durationResult": "{{hours}} 시간, {{minutes}} 분, {{seconds}} 초, {{milliseconds}} 밀리초",
+    "toHours": "{{hours}} 시간",
+    "toMinutes": "{{minutes}} 분",
+    "toSeconds": "{{seconds}} 초",
+    "toMillis": "{{milliseconds}} 밀리초",
+    "rows": "행: {{rowCount}}",
+    "rowNumLabel": "행 #",
+    "addRows": "행 추가",
+    "rowTooltip": "참고: 이 표의 최대 행 수는 {{maxRowCount}}입니다.",
+    "contact": "개발자에게 문의",
+    "errors": {
+        "divideByZero": "0으로 나눌 수 없습니다!"
+    },
+    "tooltips": {
+        "compute": "총 기간을 계산하려면 이 버튼을 클릭하십시오.",
+        "adjust": "테이블의 행 수를 조정하려면 슬라이더 핸들을 {{minRowSize}}에서 {{maxRowSize}}까지 끌어주세요.",
+        "hoursField": "시간을 설정하십시오.",
+        "minutesField": "분을 설정하십시오.",
+        "secondsField": "초를 설정하십시오.",
+        "millisField": "밀리초를 설정하십시오.",
+        "operandDropDown": "수행할 수학적 연산을 선택하십시오.",
+        "scaleField": "결과를 곱하거나 나눌 값을 설정하십시오.",
+        "contact": "문의 사항이 있으면 개발자 Adnan Wazwaz에게 연락하십시오."
+    }
+}
