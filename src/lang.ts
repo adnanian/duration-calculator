@@ -184,6 +184,14 @@ const VIETNAMESE: Language = {
     code: "vi"
 };
 
+/** Representation of Ukrainian. */
+const UKRAINIAN: Language = {
+    englishName: "Ukrainian",
+    nativeName: "українська",
+    code: "uk"
+};
+
+
 export const LanguageMap: Record<string, Language> = {
     "en": ENGLISH,
     "ar": ARABIC,
@@ -204,6 +212,7 @@ export const LanguageMap: Record<string, Language> = {
     "ru": RUSSIAN,
     "so": SOMALI,
     "tr": TURKISH,
+    "uk": UKRAINIAN,
     "ur": URDU,
     "vi": VIETNAMESE,
     "zh": MANDARIN,
