@@ -1,46 +1,101 @@
-# Getting Started with Create React App
+# Duration Calculator
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+|                      	|                                                      	|
+|:--------------------:	|:----------------------------------------------------:	|
+|        Author        	|                     Adnan Wazwaz                     	|
+|        Version       	|                          1.0                         	|
+|     Original Date    	|                   2024 September 24                  	|
+| Current Version Date 	|                   2024 September 24                  	|
+|   Adnanian App No.   	|                          TBD                         	|
+|     [**Demo**]()     	| [**Live**](https://duration-calculator.netlify.app/) 	|
 
-## Available Scripts
+## Table of Contents
 
-In the project directory, you can run:
+## Overview
 
-### `npm start`
+### What This Application Does
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+Duration Calculator is a simple front-end web application that allows you to
+calculate the total amount of time to complete your processes and tasks. In this
+context, a *duration* is defined as the amount of time during which something
+continues or lasts.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+For example, you take three walks every day: the first walk you take right before
+work, early in the morning around your neighborhood; the second walk during lunch
+break around the building where you work at; and the final walk around your
+neighborhood again after you've come home from work.
 
-### `npm test`
+Suppose that it takes you (on average) **fifteen minutes** to walk from your
+home around the neighborhood until you come back home, and **three minutes** and
+**thirty-five seconds** to walk around the company building. During break, you
+walk around the building **four times**. This means that the duration for the
+neighborhood walk is 15 minutes, and the company building lap is 3 minutes, and
+35 seconds.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The total duration in this scenario would be **44 minutes and 20 seconds**. This
+is calcualted like so:
 
-### `npm run build`
+$$ totalDuration = (neighborhoodLap × 2) + (companyBuildingLap × 4) $$
+$$ = (15 min × 2) + (3 min, 35 sec × 4) $$
+$$ = 30 min + 14 min, 20 sec $$
+$$ = 44 min, 20 sec $$
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Note, that the actual times during the days, such as 8:30 PM and 9:45 AM, are
+not taken into account when calculating total durations.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### Why This Application was Created
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+This application was created out of inspiration for the mobile application,
+*Time Calculator*, by Hà Thành, which is available on both
+[Apple](https://apps.apple.com/us/app/time-calculator/id1369060155) and
+[Android](https://play.google.com/store/apps/details?id=com.teaxapp.hourcal&hl=en-US).
 
-### `npm run eject`
+There are times where I want to avoid using my phone due to the psychological
+dangers of checking for notifications or scrolling on social media. During
+such periods, I would need to calculate durations for my work, side-projects,
+and personal hobbies of mine. (Yes, when I say I emphasize efficiency, I mean it.)
+However, I surprisingly discover that there is not a website that calculates
+durations without being forced to incorporate starting and end times. While such
+a thing is very beneficial for many situations, my situtations personally don't
+require it. So this is one reason why I decided to create a web application that
+can solve this need for me.
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Another reason was because during the time the first version of this app was
+developed, I was learning TypeScript and wanted to hone my skills for it. And
+what better way to improve your tech stack than practicing what you learned by
+creating small side projects? I wanted to learn TypeScript because I love
+when languages are statically typed. TypeScript was perfect for a JavaScript
+developer like myself. I didn't have to learn a completely new language like C#,
+which also uses static typing. I figured, since I just finished learning TS, I
+might as well make an app built with it to:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+1. Test my current TS skills.
+2. Improve my TS skills.
+3. Ensure that I do not forget anything that I learned, otherwise, learning it
+would have been a complete waste of time.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+## Technologies
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+As noted earlier, this is a mainly frontend web application. However, there is
+a tiny bit of backend involved. Below is list of languages and frameworks used:
 
-## Learn More
+- HTML
+- CSS
+- TypeScript
+- React
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+The "tiny bit of backend" is a React library called **react-i18next**. This is
+used for language translation.
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## Limitations
+
+Since I'm still relatively new to TypeScript, I have yet to figure out all there
+is about the language. I haven't figured out how to handle input validation
+without an error being thrown from my class constructors. I'm still trying
+to process the concept of type guarding.
+
+Another limitation is the ability to search the app and have it first load in
+your system's language instead of English by default. I can either work around
+this by adding a universally recognized symbol that represents language that
+indicates to any user regardless of what languages they speak that they can
+select any language from the dropdown list.
