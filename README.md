@@ -11,6 +11,15 @@
 
 ## Table of Contents
 
+1. [Overview](#overview)
+    1. [What This Application Does](#what-this-application-does)
+    2. [Why This Application was Created](#why-this-application-was-created)
+2. [How to Use](#how-to-use)
+3. [Technologies](#technologies)
+4. [Limitations](#limitations)
+5. [Future Plans](#future-plans)
+6. [Credits](#credits)
+
 ## Overview
 
 ### What This Application Does
