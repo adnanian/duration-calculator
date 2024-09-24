@@ -20,6 +20,10 @@
     font-weight: bolder;
 }
 
+.slider-container input[type="range"] {
+    accent-color: blue;
+}
+
 #table-controls button {
     font-size: 18px;
     font-weight: bolder;
