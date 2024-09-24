@@ -44,10 +44,10 @@ neighborhood walk is 15 minutes, and the company building lap is 3 minutes, and
 The total duration in this scenario would be **44 minutes and 20 seconds**. This
 is calcualted like so:
 
-$$ totalDuration = (neighborhoodLap × 2) + (companyBuildingLap × 4) $$
-$$ = (15 min × 2) + (3 min, 35 sec × 4) $$
-$$ = 30 min + 14 min, 20 sec $$
-$$ = 44 min, 20 sec $$
+$$totalDuration = (neighborhoodLap × 2) + (companyBuildingLap × 4)$$
+$$= (15 min × 2) + (3 min, 35 sec × 4)$$
+$$= 30 min + 14 min, 20 sec$$
+$$= 44 min, 20 sec$$
 
 Note, that the actual times during the days, such as 8:30 PM and 9:45 AM, are
 not taken into account when calculating total durations. Also note that I do
@@ -153,15 +153,15 @@ current total by the scale, which gives us the correct result of 5624:15:48.513.
 Alternatively, here's a mathematically visual representation of the iterative
 approach:
 
-$$ TotalDuration = Calculable_1 + Calculable_2 $$
-$$ TotalDuration = TotalDuration - Calculable_3 $$
-$$ TotalDuration = TotalDuration × Calculable_4 $$
-$$ TotalDuration = TotalDuration ÷ Calculable_5 $$
+- $$TotalDuration = Calculable_1 + Calculable_2$$
+- $$TotalDuration = TotalDuration - Calculable_3 $$
+- $$TotalDuration = TotalDuration × Calculable_4 $$
+- $$TotalDuration = TotalDuration ÷ Calculable_5 $$
 
-$$ TotalDuration = 425:31:22.753 + 116:49:01.335 = 522:20:24.088 $$
-$$ TotalDuration = 522:20:24.088 - 22:37:28.219 = 519:42:55.869 $$
-$$ TotalDuration = 519:42:55.869 * 18.159 = 9437:30:50.805 $$
-$$ TotalDuration = \frac{9437:30:50.805}{1.678} = 5624:15:48.513 $$
+- $$TotalDuration = 425:31:22.753 + 116:49:01.335 = 522:20:24.088$$
+- $$TotalDuration = 522:20:24.088 - 22:37:28.219 = 519:42:55.869$$
+- $$TotalDuration = 519:42:55.869 * 18.159 = 9437:30:50.805$$
+- $$TotalDuration = \frac{9437:30:50.805}{1.678} = 5624:15:48.513$$
 
 In summary, calculation is not performed using PEMDAS, but through an iterative
 process on the running total. During calculation, the array of Calculable objects
