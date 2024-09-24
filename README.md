@@ -44,10 +44,10 @@ neighborhood walk is 15 minutes, and the company building lap is 3 minutes, and
 The total duration in this scenario would be **44 minutes and 20 seconds**. This
 is calcualted like so:
 
-$$totalDuration = (neighborhoodLap × 2) + (companyBuildingLap × 4)$$
-$$= (15 min × 2) + (3 min, 35 sec × 4)$$
-$$= 30 min + 14 min, 20 sec$$
-$$= 44 min, 20 sec$$
+- $$totalDuration = (neighborhoodLap × 2) + (companyBuildingLap × 4)$$
+- $$= (15 min × 2) + (3 min, 35 sec × 4)$$
+- $$= 30 min + 14 min, 20 sec$$
+- $$= 44 min, 20 sec$$
 
 Note, that the actual times during the days, such as 8:30 PM and 9:45 AM, are
 not taken into account when calculating total durations. Also note that I do
