@@ -3,11 +3,16 @@
 |                                                         	|                                                      	|
 |:-------------------------------------------------------:	|:----------------------------------------------------:	|
 |                          Author                         	|                     Adnan Wazwaz                     	|
-|                         Version                         	|                          1.0                         	|
+|                         Version                         	|                          1.1                         	|
 |                      Original Date                      	|                   2024 September 24                  	|
-|                   Current Version Date                  	|                   2024 September 24                  	|
+|                   Current Version Date                  	|                   2024 September 26                  	|
 |                     Adnanian App No.                    	|                          TBD                         	|
 | [**Demo**](https://www.youtube.com/watch?v=yooOnKeghUc) 	| [**Live**](https://duration-calculator.netlify.app/) 	|
+
+## Changes
+
+- Corrected Arabic translation.
+- Added designs to README.md.
 
 ## Table of Contents
 
@@ -87,6 +92,19 @@ might as well make an app built with it to:
 2. Improve my TS skills.
 3. Ensure that I do not forget anything that I learned, otherwise, learning it
 would have been a complete waste of time.
+
+### Design
+
+Luckily, no database was required for this project. But I did need to visualize
+what I was desigining before proceeding to implement code. I created my wireframe
+using Microsoft Paint. (Yes, I used Paint because it's free. Get over it.)
+
+![Duration Calculator Wireframe](/README_files/dc-wireframe.png)
+
+I did the same thing with my app logo. It was during this project that I figured
+out how to get the logo to show in production on all device types.
+
+![Duration Calculator Logo; a clock with the arithmetic operands in a grid](/public/applogo.png)
 
 ## How to Use
 
