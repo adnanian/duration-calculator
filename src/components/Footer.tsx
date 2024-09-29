@@ -8,7 +8,7 @@ import "../styles/Footer.css";
  * @returns the footer (i.e. a link to Adnan Wazwaz's personal website.)
  */
 const Footer: React.FC = () => {
-    const {t} = useTranslation();
+    const { t } = useTranslation();
 
     return (
         <footer>

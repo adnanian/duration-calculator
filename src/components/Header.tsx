@@ -1,17 +1,9 @@
-import React, { ChangeEventHandler } from "react";
-import { Language, LanguageMap } from "../lang";
+import React, { ChangeEvent } from "react";
+import { LanguageMap } from "../lang";
 import { useTranslation } from "react-i18next";
 import "../styles/Header.css";
+import { useNavigate } from "react-router-dom";
 
-/**
- * Interface representing the props for the Header component.
- */
-interface TopPageManagement {
-    /** The lanuage to display the contents of the application in. */
-    targetLanguage: Language;
-    /** The callback function to execute when a language is selection. */
-    onLanguageSelection: ChangeEventHandler<HTMLSelectElement>;
-}
 
 /**
  * Header component that renders the application title and manages language selection.
@@ -19,8 +11,9 @@ interface TopPageManagement {
  * @param props - the props for the Header component. 
  * @returns the rendered Header component.
  */
-const Header: React.FC<TopPageManagement> = ({ targetLanguage, onLanguageSelection }) => {
-    const { t } = useTranslation();
+const Header: React.FC = () => {
+    const { i18n, t } = useTranslation();
+    const navigate = useNavigate();
 
     // List of all available languages for this application.
     const languageOptions = Object.values(LanguageMap).map((language) => {
@@ -31,10 +24,18 @@ const Header: React.FC<TopPageManagement> = ({ targetLanguage, onLanguageSelecti
         );
     });
 
+    function handleLanguageSelection(e: ChangeEvent<HTMLSelectElement>): void {
+        i18n.changeLanguage(e.target.value);
+        localStorage.setItem('savedLanguage', e.target.value);
+        navigate(`/${e.target.value}`);
+    }
+
+    // console.log(i18n.language, dir);
+
     return (
-        <header dir={targetLanguage?.dir || "ltr"}>
+        <header>
             <p><b>{t("label")}</b></p>
-            <select defaultValue={"en"} onChange={onLanguageSelection}>
+            <select defaultValue={i18n.language || "en"} onChange={handleLanguageSelection}>
                 {languageOptions}
             </select>
             <h1>{t("title")}</h1>
