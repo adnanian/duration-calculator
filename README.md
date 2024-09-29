@@ -3,16 +3,15 @@
 |                                                         	|                                                      	|
 |:-------------------------------------------------------:	|:----------------------------------------------------:	|
 |                          Author                         	|                     Adnan Wazwaz                     	|
-|                         Version                         	|                          1.1                         	|
+|                         Version                         	|                          1.2                         	|
 |                      Original Date                      	|                   2024 September 24                  	|
-|                   Current Version Date                  	|                   2024 September 26                  	|
+|                   Current Version Date                  	|                   2024 September 29                  	|
 |                     Adnanian App No.                    	|                          TBD                         	|
 | [**Demo**](https://www.youtube.com/watch?v=yooOnKeghUc) 	| [**Live**](https://duration-calculator.netlify.app/) 	|
 
-## Changes
+## Latest Changes
 
-- Corrected Arabic translation.
-- Added designs to README.md.
+- Added translated app name to title tab of browser.
 
 ## Table of Contents
 
