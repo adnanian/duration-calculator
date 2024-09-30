@@ -1,36 +1,30 @@
-import React, {useEffect} from "react";
-import { BrowserRouter, Routes as RouteList, Route, useParams } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Routes as RouteList, Route, Navigate } from "react-router-dom";
 import PageLayout from "./components/PageLayout";
 import MainLayout from "./components/MainLayout";
 import i18n from "./i18n";
 
 /**
+ * Parent component of all the other components.
  * 
- * @returns 
+ * @returns App.
  */
 const App: React.FC = () => {
-    const { langCode } = useParams<{langCode: string}>();
+   
 
-    useEffect(() => {
-        const setLangOnDOM = () => {
-            if (i18n.resolvedLanguage) {
-                document.documentElement.lang = i18n.resolvedLanguage;
-                document.documentElement.dir = i18n.dir(i18n.resolvedLanguage);
-            }
-        }
-
-        i18n.on("languageChanged", setLangOnDOM);
-
-        setLangOnDOM();
-
-        return () => i18n.off("languageChanged", setLangOnDOM);
-    }, [langCode]);
     return (
         <BrowserRouter>
             <RouteList>
-                <Route path="/" element={<PageLayout />}>
-                    <Route path=":langCode" element={<MainLayout />} />
+                {/* Default route redirects to current language */}
+                <Route path="/" element={<Navigate to={`/${i18n.language}`} replace />} />
+                
+                {/* Language-specific route */}
+                <Route path=":langCode" element={<PageLayout />}>
+                    <Route index element={<MainLayout />} />
                 </Route>
+
+                {/* Catch-all route */}
+                <Route path="*" element={<Navigate to="/en" replace />} />
             </RouteList>
         </BrowserRouter>
     );

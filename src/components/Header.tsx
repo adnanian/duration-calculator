@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 import "../styles/Header.css";
 import { useNavigate } from "react-router-dom";
 
-
 /**
  * Header component that renders the application title and manages language selection.
  * 
@@ -24,18 +23,22 @@ const Header: React.FC = () => {
         );
     });
 
+    /**
+     * Sets the new language of the application and refreshes the page in that
+     * language.
+     * 
+     * @param e the event.
+     */
     function handleLanguageSelection(e: ChangeEvent<HTMLSelectElement>): void {
         i18n.changeLanguage(e.target.value);
         localStorage.setItem('savedLanguage', e.target.value);
         navigate(`/${e.target.value}`);
     }
 
-    // console.log(i18n.language, dir);
-
     return (
         <header>
             <p><b>{t("label")}</b></p>
-            <select defaultValue={i18n.language || "en"} onChange={handleLanguageSelection}>
+            <select defaultValue={i18n.resolvedLanguage || "en"} onChange={handleLanguageSelection}>
                 {languageOptions}
             </select>
             <h1>{t("title")}</h1>

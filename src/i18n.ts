@@ -7,7 +7,6 @@ const savedLanguage = localStorage.getItem('savedLanguage') || "en";
 // console.log(process.env);
 // console.log(getCurrentHost);
 
-
 i18n.use(i18nBackend).use(initReactI18next).init({
     lng: savedLanguage,
     fallbackLng: "en",

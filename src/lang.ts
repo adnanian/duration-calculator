@@ -191,7 +191,9 @@ const UKRAINIAN: Language = {
     code: "uk"
 };
 
-
+/**
+ * List of languages available.
+ */
 export const LanguageMap: Record<string, Language> = {
     "en": ENGLISH,
     "ar": ARABIC,

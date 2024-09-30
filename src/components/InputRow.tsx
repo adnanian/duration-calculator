@@ -4,17 +4,13 @@ import { useTranslation } from "react-i18next";
 
 /**
  * Interface representing the props for the InputRow component.
- * @interface CalculableInputRow
- * @property {Number} index - the row index.
- * @property {dt.CalcWrapper} calcWrapper - the calculation wrapper, consisting of a duration/scale and an operand.
- * @property {ChangeEventHandler<HTMLInputElement | HTMLSelectElement>} onInputChange - callback for input change.
  */
 interface CalculableInputRow {
     /** The row index. */
     index: number
-    /** */
+    /** The calculation wrapper, consisting of a duration/scale and an operand. */
     calcWrapper: dt.CalcWrapper,
-    /** */
+    /** The callback for input change. */
     onInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
 }
 
@@ -48,8 +44,6 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
         durationInputReadOnly = true;
         scaleInputReadOnly = false;
     }
-
-    // console.log(calcWrapper.durationCalculable instanceof dt.Duration);
 
     return (
         <tr>

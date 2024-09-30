@@ -6,7 +6,11 @@ import TableControls from "./TableControls";
 import ResultsPanel from "./ResultsPanel";
 import InputTable from "./InputTable";
 
-
+/**
+ * Renders the outlet component, where the bulk of the translations are applied.
+ * 
+ * @returns the outlet component.
+ */
 const MainLayout: React.FC = () => {
     const MIN_ROW_SIZE: number = 2, MAX_ROW_SIZE: number = 100;
     const { t } = useTranslation();
