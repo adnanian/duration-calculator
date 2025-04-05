@@ -3,15 +3,18 @@
 |                                                         	|                                                      	|
 |:-------------------------------------------------------:	|:----------------------------------------------------:	|
 |                          Author                         	|                     Adnan Wazwaz                     	|
-|                         Version                         	|                          1.2                         	|
+|                         Version                         	|                          1.3                         	|
 |                      Original Date                      	|                   2024 September 24                  	|
-|                   Current Version Date                  	|                   2024 September 29                  	|
-|                     Adnanian App No.                    	|                          TBD                         	|
+|                   Current Version Date                  	|                   2024 September 30                  	|
+|                     Adnanian App No.                    	|                          19                         	|
 | [**Demo**](https://www.youtube.com/watch?v=yooOnKeghUc) 	| [**Live**](https://duration-calculator.netlify.app/) 	|
 
 ## Latest Changes
 
 - Added translated app name to title tab of browser.
+- Implemented client-side routing to all languages, and ensured that it works on
+both development and production.
+    - Article of reference: (https://www.freecodecamp.org/news/how-to-deploy-react-router-based-app-to-netlify/).
 
 ## Table of Contents
 
