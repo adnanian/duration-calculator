@@ -12,7 +12,7 @@ interface CalcWrapperManager {
     calcWrappers: CalcWrapper[],
     /** 
      * The callback function to execute when a duration field or scale has been changed, or when a new
-     * operand has been selected.
+    * operator has been selected.
      */
     onInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
 }
@@ -48,7 +48,7 @@ const InputTable: React.FC<CalcWrapperManager> = ({ calcWrappers, onInputChange 
                         <th>{t("minutes")}</th>
                         <th>{t("seconds")}</th>
                         <th>{t("milliseconds")}</th>
-                        <th>{t("operand")}</th>
+                        <th>{t("operator")}</th>
                         <th>{t("scale")}</th>
                     </tr>
                 </thead>

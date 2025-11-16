@@ -1,20 +1,27 @@
 # Duration Calculator
 
-|                                                         	|                                                      	|
-|:-------------------------------------------------------:	|:----------------------------------------------------:	|
-|                          Author                         	|                     Adnan Wazwaz                     	|
-|                         Version                         	|                          1.3                         	|
-|                      Original Date                      	|                   2024 September 24                  	|
-|                   Current Version Date                  	|                   2024 September 30                  	|
-|                     Adnanian App No.                    	|                          19                         	|
-| [**Demo**](https://www.youtube.com/watch?v=yooOnKeghUc) 	| [**Live**](https://duration-calculator.netlify.app/) 	|
+|                                                         |                                                      |
+|---------------------------------------------------------|------------------------------------------------------|
+|                          Author                         |                     Adnan Wazwaz                     |
+|                         Version                         |                          1.4                         |
+|                      Original Date                      |                   2024 September 24                  |
+|                   Current Version Date                  |                   2025 November 15                   |
+|                     Adnanian App No.                    |                          19                          |
+| [**Demo**](https://www.youtube.com/watch?v=yooOnKeghUc) | [**Live**](https://duration-calculator.netlify.app/) |
 
 ## Latest Changes
 
 - Added translated app name to title tab of browser.
+
 - Implemented client-side routing to all languages, and ensured that it works on
 both development and production.
-    - Article of reference: (https://www.freecodecamp.org/news/how-to-deploy-react-router-based-app-to-netlify/).
+
+- Article of reference: [](https://www.freecodecamp.org/news/how-to-deploy-react-router-based-app-to-netlify/).
+
+- Replaced all references of the term "operand" with "operator" as the correct term
+for the arithmetic operational symbols.
+
+- Upgraded this project from Create-React-App to Vite.
 
 ## Table of Contents
 
@@ -106,7 +113,7 @@ using Microsoft Paint. (Yes, I used Paint because it's free. Get over it.)
 I did the same thing with my app logo. It was during this project that I figured
 out how to get the logo to show in production on all device types.
 
-![Duration Calculator Logo; a clock with the arithmetic operands in a grid](/public/applogo.png)
+![Duration Calculator Logo; a clock with the arithmetic operators in a grid](/public/applogo.png)
 
 ## How to Use
 
@@ -146,8 +153,8 @@ number of rows.
     ![Minimum row size: 2](/README_files/dc-2-rows.png)
     ![Maximum row size: 100](/README_files/dc-100-rows.png)
 
-3. For each row, set the duration, scale, or operand. If the currently selected
-operand is a **+** or a **-**, then you will be able to set a duration for that
+3. For each row, set the duration, scale, or operator. If the currently selected
+operator is a **+** or a **-**, then you will be able to set a duration for that
 row; otherwise, you will be able to set a scale. The scale is for multiplying or
 dividing durations.
 
@@ -229,16 +236,21 @@ ChatGPT, I, who obviously does not speak all these languages, have no way of
 validating them without hiring native speakers of those languages.
 
 ## Future Plans
+
 I wish to improve this application by doing the following:
 
 - Adding input validation for duration units and scales.
 
 - Review translations with native speakers.
 
+- Maintain this application as I continue to upgrade features from Create-React-App
+to Vite.
+
 ## Credits
+
 MIT License
 
-Copyright (c) 2024 Adnan Wazwaz
+Copyright (c) 2024-2025 Adnan Wazwaz
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

@@ -14,7 +14,7 @@ import InputTable from "./InputTable";
 const MainLayout: React.FC = () => {
     const MIN_ROW_SIZE: number = 2, MAX_ROW_SIZE: number = 100;
     const { t } = useTranslation();
-    // Array of durations, scales, and the operands.
+    // Array of durations, scales, and the operators.
     // Must first initialize to null so that id can increment.
     const [calculableArgs, setCalculableArgs] = useState<dt.CalcWrapper[]>((): dt.CalcWrapper[] => {
         const cwArray: dt.CalcWrapper[] = Array(MIN_ROW_SIZE).fill(null);
@@ -38,12 +38,12 @@ const MainLayout: React.FC = () => {
             if (index === targetIndex) {
                 const fieldName: string = e.target.id.substring(0, e.target.id.indexOf('-'))
                 let newCW: dt.CalcWrapper = cw.clone();
-                if (fieldName === 'operand') {
-                    const oldOperand = newCW.operand;
-                    newCW.operand = e.target.value as dt.Operand;
-                    if ((newCW.operand === '+' || newCW.operand === '-') && (oldOperand === '×' || oldOperand === '÷')) {
+                if (fieldName === 'operator') {
+                    const oldOperator = newCW.operator;
+                    newCW.operator = e.target.value as dt.Operator;
+                    if ((newCW.operator === '+' || newCW.operator === '-') && (oldOperator === '×' || oldOperator === '÷')) {
                         newCW.durationCalculable = new dt.Duration(0, 0, 0, 0) as dt.Duration;
-                    } else if ((newCW.operand === '×' || newCW.operand === '÷') && (oldOperand === '+' || oldOperand === '-')) {
+                    } else if ((newCW.operator === '×' || newCW.operator === '÷') && (oldOperator === '+' || oldOperator === '-')) {
                         newCW.durationCalculable = new dt.Scale(0) as dt.Scale;
                     }
                 } else {
@@ -65,21 +65,21 @@ const MainLayout: React.FC = () => {
     }
 
     /**
-     * Calculates the total duration from the array of durations, scales and their corresponding
-     * operands. 
+    * Calculates the total duration from the array of durations, scales and their corresponding
+    * operators. 
      */
     function compute(): void {
         try {
             let totalDuration: dt.Duration = new dt.Duration(0, 0, 0, 0);
             calculableArgs.forEach((row, index) => {
-                // console.log(row.operand);
+                // console.log(row.operator);
                 if (index === 0) {
                     totalDuration = row.durationCalculable as dt.Duration;
                 } else {
                     if (dt.isDuration(row.durationCalculable)) {
-                        totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Duration, row.operand);
+                        totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Duration, row.operator);
                     } else if (dt.isScale(row.durationCalculable)) {
-                        totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Scale, row.operand);
+                        totalDuration = totalDuration.performCalculation(row.durationCalculable as dt.Scale, row.operator);
                     }
                 }
             });

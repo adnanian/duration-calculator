@@ -1,4 +1,4 @@
-import React, {useEffect} from "react";
+import React, { useEffect } from "react";
 import Header from "./Header";
 import { Outlet } from "react-router-dom";
 import Footer from "./Footer";
@@ -12,7 +12,7 @@ import i18n from "../i18n";
  */
 const PageLayout: React.FC = () => {
     const { langCode } = useParams<{ langCode: string }>();
-    
+
 
     useEffect(() => {
         const setLangOnDOM = () => {
@@ -33,7 +33,7 @@ const PageLayout: React.FC = () => {
 
         setLangOnDOM();
 
-        console.log("Effect");
+        // console.log("Effect");
 
         return () => i18n.off("languageChanged", setLangOnDOM);
     }, [langCode]);

@@ -8,7 +8,7 @@ import { useTranslation } from "react-i18next";
 interface CalculableInputRow {
     /** The row index. */
     index: number
-    /** The calculation wrapper, consisting of a duration/scale and an operand. */
+    /** The calculation wrapper, consisting of a duration/scale and an operator. */
     calcWrapper: dt.CalcWrapper,
     /** The callback for input change. */
     onInputChange: ChangeEventHandler<HTMLInputElement | HTMLSelectElement>
@@ -100,10 +100,10 @@ const InputRow: React.FC<CalculableInputRow> = ({ index, calcWrapper, onInputCha
                     onChange={onInputChange}
                 />
             </td>
-            <td title={t("tooltips.operandDropDown")}>
+            <td title={t("tooltips.operatorDropDown")}>
                 {
                     index === 0 ? null : (
-                        <select id={`operand-${index}`} onChange={onInputChange}>
+                        <select id={`operator-${index}`} onChange={onInputChange}>
                             <option value='+'>+</option>
                             <option value='-'>-</option>
                             <option value='×'>×</option>
