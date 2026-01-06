@@ -212,33 +212,49 @@ export class Duration extends Calculable {
     const hoursProduct: number = this.hours * scaleVal;
     let hoursPlace: number = Math.floor(hoursProduct);
     const hoursRemainder: number = hoursProduct - hoursPlace;
+    console.log("Hours Product: " + hoursProduct);
+    console.log("Hours Place: " + hoursPlace);
+    console.log("Hours Remainder: " + hoursRemainder);
     // Step 2
     const minutesProduct: number =
       Duration.MINUTES_PER_HOUR * hoursRemainder + this.minutes * scaleVal;
     let minutesPlace: number = Math.floor(minutesProduct);
     const minutesRemainder: number = minutesProduct - minutesPlace;
+    console.log("Minutes Product: " + minutesProduct);
+    console.log("Minutes Place: " + minutesPlace);
+    console.log("Minutes Remainder: " + minutesRemainder);
     // Step 3
     const secondsProduct: number =
       Duration.SECONDS_PER_MINUTE * minutesRemainder + this.seconds * scaleVal;
     let secondsPlace: number = Math.floor(secondsProduct);
     const secondsRemainder: number = secondsProduct - secondsPlace;
+    console.log("Seconds Product: " + secondsProduct);
+    console.log("Seconds Place: " + secondsPlace);
+    console.log("Seconds Remainder: " + secondsRemainder);
     // Step 4
     const millisProduct: number = Math.floor(
       Duration.MILLIS_PER_SECOND * secondsRemainder +
         this.milliseconds * scaleVal
     );
     let millisPlace: number = millisProduct % Duration.MILLIS_PER_SECOND;
+    console.log("Millis Product: " + millisProduct);
+    console.log("Millis Place: " + millisPlace);
     // Step 5
     const secondsSum: number =
       Math.floor(millisProduct / Duration.MILLIS_PER_SECOND) + secondsPlace;
     secondsPlace = secondsSum % Duration.SECONDS_PER_MINUTE;
+    console.log("Seconds Sum: " + secondsSum);
+    console.log("Updated Seconds Place: " + secondsPlace);
     // Step 6
     const minutesSum: number =
       Math.floor(secondsProduct / Duration.SECONDS_PER_MINUTE) + minutesPlace;
     minutesPlace = minutesSum % Duration.MINUTES_PER_HOUR;
+    console.log("Minutes Sum: " + minutesSum);
+    console.log("Updated Minutes Place: " + minutesPlace);
     // Step 7
     hoursPlace =
       Math.floor(minutesSum / Duration.MINUTES_PER_HOUR) + hoursPlace;
+    console.log("Updated Hours Place: " + hoursPlace);
     return new Duration(hoursPlace, minutesPlace, secondsPlace, millisPlace);
   }
 
