@@ -3,13 +3,15 @@
 |                                                         |                                                      |
 |---------------------------------------------------------|------------------------------------------------------|
 |                          Author                         |                     Adnan Wazwaz                     |
-|                         Version                         |                          1.4                         |
+|                         Version                         |                          1.5                         |
 |                      Original Date                      |                   2024 September 24                  |
-|                   Current Version Date                  |                   2025 November 15                   |
+|                   Current Version Date                  |                   2026 May 17                   |
 |                     Adnanian App No.                    |                          19                          |
 | [**Demo**](https://www.youtube.com/watch?v=yooOnKeghUc) | [**Live**](https://duration-calculator.netlify.app/) |
 
 ## Latest Changes
+
+- Fixed vulnerability in `react-i18next` package by upgrading it to version 12.3.0.
 
 - Added translated app name to title tab of browser.
 

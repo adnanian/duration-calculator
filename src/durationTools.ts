@@ -113,7 +113,7 @@ export class Duration extends Calculable {
     hours: number,
     minutes: number,
     seconds: number,
-    milliseconds: number
+    milliseconds: number,
   ) {
     // if (!Number.isInteger(hours) || hours < 0) {
     //     throw new Error("Hours must be a non-negative integer.");
@@ -212,9 +212,9 @@ export class Duration extends Calculable {
     const hoursProduct: number = this.hours * scaleVal;
     let hoursPlace: number = Math.floor(hoursProduct);
     const hoursRemainder: number = hoursProduct - hoursPlace;
-    console.log("Hours Product: " + hoursProduct);
-    console.log("Hours Place: " + hoursPlace);
-    console.log("Hours Remainder: " + hoursRemainder);
+    // console.log("Hours Product: " + hoursProduct);
+    // console.log("Hours Place: " + hoursPlace);
+    // console.log("Hours Remainder: " + hoursRemainder);
     // Step 2
     const minutesProduct: number =
       Duration.MINUTES_PER_HOUR * hoursRemainder + this.minutes * scaleVal;
@@ -234,7 +234,7 @@ export class Duration extends Calculable {
     // Step 4
     const millisProduct: number = Math.floor(
       Duration.MILLIS_PER_SECOND * secondsRemainder +
-        this.milliseconds * scaleVal
+        this.milliseconds * scaleVal,
     );
     let millisPlace: number = millisProduct % Duration.MILLIS_PER_SECOND;
     console.log("Millis Product: " + millisProduct);
@@ -287,7 +287,7 @@ export class Duration extends Calculable {
     // Step 4
     const millisQuotient: number = Math.floor(
       Duration.MILLIS_PER_SECOND * secondsRemainder +
-        this.milliseconds / scaleVal
+        this.milliseconds / scaleVal,
     );
     let millisPlace: number = millisQuotient % Duration.MILLIS_PER_SECOND;
     // Step 5
@@ -420,7 +420,7 @@ export class Duration extends Calculable {
       this.hours,
       this.minutes,
       this.seconds,
-      this.milliseconds
+      this.milliseconds,
     );
     // cloned.id = this.id; // Retain the same ID
     return cloned;
